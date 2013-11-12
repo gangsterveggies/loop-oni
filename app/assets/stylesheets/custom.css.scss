@@ -1,0 +1,157 @@
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$ONIYellow: #FFE479;
+$ONIYellowDark: #EDD161;
+$ONIRed: #9D2225;
+$ONIRedDark: #8A1316;
+$SWhite: #F6F6F6;
+
+@mixin background_mix($color1, $color2) {
+  background-color: $color1;
+  background-image: -moz-linear-gradient(top, $color1, $color2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($color1), to($color2));
+  background-image: -webkit-linear-gradient(top, $color1, $color2);
+  background-image: -o-linear-gradient(top, $color1, $color2);
+  background-image: linear-gradient(to bottom, $color1, $color2);
+  background-repeat: repeat-x;
+}
+
+/* universal */
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  height: 100%;
+  @include background_mix(#CCC, #CCC);
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  padding-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* header */
+
+.navbar-inner {
+  padding-top: 7px;
+  padding-bottom: 7px;
+
+  @include background_mix($SWhite, White); 
+}
+
+#infobox {
+  vertical-align: middle;
+  height: 25px;
+  line-height: 25px;
+  margin-left: 190px;
+  margin-bottom: 5px;
+
+  @include background_mix($ONIYellow, $ONIYellowDark);
+}
+
+nav {
+  margin-left: 190px;
+  padding-left: 10px;
+  line-height: 30px;
+  height: 30px;
+  @include background_mix($ONIYellow, $ONIYellowDark);
+
+  ul {
+    list-style: none;
+    display: inline;
+
+    li {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      float: left;
+      padding-left: 7px;
+      padding-right: 7px;
+
+      &:hover {
+          @include background_mix($ONIYellowDark, $ONIYellow);
+      }
+
+      a {
+        color: $ONIRed;
+        font-weight: bold;
+        &:hover {
+          color: $ONIRedDark;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+
+/* Content */
+
+#content {
+  margin-top: -20px;
+  @include background_mix(White, White);
+}
+
+#page {
+  width: 92%;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+/* footer */
+
+footer {
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: 1px solid Gray;
+  small {
+    float: left;
+  }
+  img {
+    float: right;
+  }
+}

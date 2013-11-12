@@ -1,0 +1,2 @@
+module CoverPagesHelper
+end
