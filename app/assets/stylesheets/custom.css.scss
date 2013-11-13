@@ -27,6 +27,7 @@ html {
 
 body {
   height: 100%;
+  text-align: justify;
   @include background_mix(#CCC, #CCC);
 }
 
@@ -58,17 +59,17 @@ h1 {
   text-align: center;
 }
 
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  padding-bottom: 30px;
-  text-align: center;
+h3 {
+  font-size: 2.0em;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 70px;
   font-weight: normal;
 }
 
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
+p, li {
+  font-size: 1em;
+  line-height: 1.3em;
 }
 
 
@@ -82,44 +83,52 @@ p {
 }
 
 #infobox {
-  vertical-align: middle;
-  height: 25px;
-  line-height: 25px;
+  height: 100px;
   margin-left: 190px;
-  margin-bottom: 5px;
+  @include background_mix($ONIYellow, $ONIYellow);
+}
 
-  @include background_mix($ONIYellow, $ONIYellowDark);
+#statusbox {
+  padding-left: 20px;
+  padding-right: 20px;
+  vertical-align: middle;
+  height: 70px;
+  line-height: 70px;
+  border-bottom: 1px solid $ONIYellowDark;
+
+  a {
+    color: $ONIRed;
+    &:hover {
+      color: $ONIYellowDark;
+      text-decoration: none;
+    }
+  }
 }
 
 nav {
-  margin-left: 190px;
-  padding-left: 10px;
-  line-height: 30px;
-  height: 30px;
-  @include background_mix($ONIYellow, $ONIYellowDark);
-
   ul {
     list-style: none;
     display: inline;
+    margin: 0;
 
     li {
-      padding-top: 5px;
-      padding-bottom: 5px;
+      height: 29px;
+      line-height: 29px;
       float: left;
-      padding-left: 7px;
-      padding-right: 7px;
+      padding-left: 20px;
+      padding-right: 20px;
 
       &:hover {
-          @include background_mix($ONIYellowDark, $ONIYellow);
+        @include background_mix($ONIRedDark, $ONIRedDark);
+        a {
+          color: $ONIYellowDark;
+          text-decoration: none;
+        }
       }
 
       a {
         color: $ONIRed;
         font-weight: bold;
-        &:hover {
-          color: $ONIRedDark;
-          text-decoration: none;
-        }
       }
     }
   }
@@ -129,6 +138,7 @@ nav {
 /* Content */
 
 #content {
+  width: 1100px;
   margin-top: -20px;
   @include background_mix(White, White);
 }
@@ -137,8 +147,33 @@ nav {
   width: 92%;
   padding-left: 15px;
   padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 30px;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
+
+  a {
+    color: $ONIRed;
+    font-weight: bold;
+    &:hover {
+      color: $ONIYellowDark;
+      text-decoration: none;
+    }
+  }
+
+  ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding-left: 15px;
+    list-style: none;
+    border-left: 1px solid;
+  }
+
+  li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
 
 /* footer */

@@ -4,19 +4,22 @@
       <div class="span2">
         <%= link_to image_tag("logo.png", alt: "Loop"), root_path, id: "logo" %>
       </div>
-      <div class="well well-lg" id="infobox">
-        Hello People
+      <div id="infobox">
+        <div id="statusbox">
+          Hello People,
+          <%= link_to "Login", '#' %>
+        </div>
+        <nav>
+          <ul>
+            <li><%= link_to "Início",    '#' %></li>
+            <li><%= link_to "Artigos",    '#' %></li>
+            <li><%= link_to "Problemas", '#' %></li>
+            <li><%= link_to "Concursos", '#' %></li>
+            <li><%= link_to "Concorrentes", '#' %></li>
+            <li><%= link_to "Olimpíadas(ONI)", '#' %></li>
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <ul>
-          <li><%= link_to "Início",    '#' %></li>
-          <li><%= link_to "Artigos",    '#' %></li>
-          <li><%= link_to "Problemas", '#' %></li>
-          <li><%= link_to "Concursos", '#' %></li>
-          <li><%= link_to "Concorrentes", '#' %></li>
-          <li><%= link_to "Olimpíadas(ONI)", '#' %></li>
-        </ul>
-      </nav>
     </div>
   </div>
 </header>
