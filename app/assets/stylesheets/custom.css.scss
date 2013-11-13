@@ -53,6 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+    font-variant: small-caps;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
@@ -107,6 +108,7 @@ p, li {
 
 nav {
   ul {
+    font-variant: small-caps;
     list-style: none;
     display: inline;
     margin: 0;
@@ -118,12 +120,16 @@ nav {
       padding-left: 20px;
       padding-right: 20px;
 
-      &:hover {
+      &:not(.click-nav):hover {
         @include background_mix($ONIRedDark, $ONIRedDark);
         a {
           color: $ONIYellowDark;
           text-decoration: none;
         }
+      }
+
+      ul {
+        @include background_mix($ONIYellow, $ONIYellow);
       }
 
       a {
@@ -134,6 +140,25 @@ nav {
   }
 }
 
+.click-nav {
+  cursor: pointer;
+  color: $ONIRed;
+  font-weight: bold;
+
+  &:hover {
+    @include background_mix($ONIRedDark, $ONIRedDark);
+    color: $ONIYellowDark;
+  }
+
+  ul {
+    display: none;
+    position: absolute;
+    margin-left: -20px;
+    li {
+      float: none;
+    }
+  }
+}
 
 /* Content */
 
@@ -184,9 +209,10 @@ footer {
   padding-right: 10px;
   border-top: 1px solid Gray;
   small {
-    float: left;
+    padding-left: 20px;
   }
   img {
     float: right;
+    padding-right: 20px;
   }
 }

@@ -1,4 +1,2 @@
 Next time:
-     - Fix text and paragraphs and hs;
-     - Fix Footer;
      - Create and Link pages;

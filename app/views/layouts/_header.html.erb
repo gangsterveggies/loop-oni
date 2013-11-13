@@ -11,12 +11,19 @@
         </div>
         <nav>
           <ul>
-            <li><%= link_to "Início",    '#' %></li>
-            <li><%= link_to "Artigos",    '#' %></li>
+            <li><%= link_to "Início", root_path %></li>
+            <li class="click-nav">
+              Recursos <b class="caret" style="vertical-align: middle;"></b>
+              <ul>
+                <li><%= link_to "Artigos", '#' %></li>
+                <li><%= link_to "Guias", '#' %></li>
+                <li><%= link_to "Categorias", '#' %></li>
+              </ul>
+            </li>
             <li><%= link_to "Problemas", '#' %></li>
             <li><%= link_to "Concursos", '#' %></li>
             <li><%= link_to "Concorrentes", '#' %></li>
-            <li><%= link_to "Olimpíadas(ONI)", '#' %></li>
+            <li><%= link_to "Olimpíadas (ONI)", 'http://www.dcc.fc.up.pt/oni/', target: "_blank" %></li>
           </ul>
         </nav>
       </div>
