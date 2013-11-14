@@ -53,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-variant: small-caps;
+  font-variant: small-caps;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
@@ -198,6 +198,37 @@ nav {
   li {
     padding-top: 5px;
     padding-bottom: 5px;
+  }
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input {
+  height: auto !important;
+  margin-left: 5px;
+}
+
+.button-style {
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: $ONIYellow;
+  box-shadow: 0px 3px 0px 0px $ONIYellowDark;
+  text-shadow: 0 1px rgba(1, 1, 1, 0.2);
+  color: $ONIRed;
+  border: none;
+  font-weight: bold;
+  font-variant: small-caps;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+
+  &:hover {
+    background-color: $ONIRed;
+    box-shadow: 0px 3px 0px 0px $ONIRedDark;
+    color: $ONIYellow;
   }
 }
 
