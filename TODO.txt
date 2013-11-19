@@ -1,2 +1,3 @@
 Next time:
-     - Create and Link pages;
+     - Update contestant model;
+     - Add administration
