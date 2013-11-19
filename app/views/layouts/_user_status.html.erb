@@ -1,5 +1,5 @@
 <% if signed_in? %>
-Logado como <%= link_to current_user.name, current_user %>, <%= link_to "logout", signout_path, method: "delete" %>
+Logado como <%= link_to current_user.email, current_user %>, <%= link_to "logout", signout_path, method: "delete" %>
 <% else %>
 Não está logado. Entre aqui: <%= link_to "Login", signin_path %>, ou <%= link_to "registe-se", signup_path %>
 <% end %>
