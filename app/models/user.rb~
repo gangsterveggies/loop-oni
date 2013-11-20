@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor :grade
   before_save :setup_user
   before_create :create_remember_token
+  before_update :update_user
 
   validates :name,  presence: true, length: { maximum: 100 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -23,8 +24,30 @@ class User < ActiveRecord::Base
   private
     def setup_user
       self.email = email.downcase
+      self.qualifications = 0
+      self.finals = 0
+      self.iois = 0
+      self.wins = 0
+      self.bronze = 0
+      self.silver = 0
+      self.gold = 0
       create_grad_year
+      if (grade.present? and Integer(grade) > 4 and Integer(grade) <= 12)
+        self.contestant_type = 0
+      else
+        self.contestant_type = 1
+      end
     end
+
+    def update_user
+      create_grad_year
+      if (grade.present? and Integer(grade) > 4 and Integer(grade) <= 12)
+        self.contestant_type = 0
+      else
+        self.contestant_type = 1
+      end
+    end
+
 
     def create_grad_year
       if (grade.present? and Integer(grade) > 0)

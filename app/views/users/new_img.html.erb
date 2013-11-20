@@ -1,0 +1,15 @@
+<% provide(:title, 'Mudar Imagem') %>
+<h1>Mudar Imagem</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= render 'shared/error_messages' %>
+    <%= form_for(@user, :html => { :multipart => true }) do |f| %>
+  
+      <%= f.label :profile_image, "Imagem de Perfil" %>
+      <%= f.file_field :profile_image %>
+      
+      <%= f.submit "Enviar Imagem", class: "button-style" %>
+    <% end %>
+  </div>
+</div>

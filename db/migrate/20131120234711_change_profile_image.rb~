@@ -1,0 +1,4 @@
+class ChangeProfileImage < ActiveRecord::Migration
+  def change
+  end
+end

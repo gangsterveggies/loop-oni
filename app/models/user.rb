@@ -1,14 +1,15 @@
 class User < ActiveRecord::Base
-  attr_accessor :grade
+  attr_accessor :grade, :updating_password, :updating_stats
   before_save :setup_user
   before_create :create_remember_token
   before_update :update_user
+  mount_uploader :profile_image, ImageUploader
 
   validates :name,  presence: true, length: { maximum: 100 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 6 }
-  validates :grade, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 12 }
+  validates :password, length: { minimum: 6 }, :if => :should_validate_password?
+  validates :grade, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 12 }, :if => :should_validate_stats?
   validates :school, length: { maximum: 100 }, :allow_nil => true
   validates :city, length: { maximum: 100 }, :allow_nil => true
   has_secure_password
@@ -19,6 +20,14 @@ class User < ActiveRecord::Base
 
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def should_validate_password?
+    updating_password || new_record?
+  end
+
+  def should_validate_stats?
+    updating_stats
   end
 
   private

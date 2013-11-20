@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120185344) do
+ActiveRecord::Schema.define(version: 20131120234711) do
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20131120185344) do
     t.integer  "gold"
     t.integer  "contestant_type"
     t.boolean  "admin",           default: false
+    t.string   "profile_image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
