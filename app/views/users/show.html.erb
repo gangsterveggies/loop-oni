@@ -1,2 +1,62 @@
 <% provide(:title, @user.name) %>
-<h3><%= @user.name %></h3>
+<div id="profile">
+  <div id="profile-img">
+    <%= image_tag("placeholder.png", alt: "#{@user.name}", height: '180', width: '180') %>
+    <% if signed_in? and (current_user?(@user) or current_user.admin?) %>
+      Mudar imagem...
+    <% end %>
+  </div>
+  <div id="profile-top">
+    <h3><%= @user.name %></h3>
+    <% if @user.contestant_type == 0 %>
+      <table>
+        <tr>
+          <td><b>Ano Escolar:</b></td>
+          <td><%= get_grade_from_year(@user.graduation_year) %></td>
+        </tr>
+        <tr>
+          <td><b>Cidade:</b></td>
+          <td><%= @user.city %></td>
+        <tr>
+          <td><b>Escola:</b></td>
+          <td><%= @user.school %></td>
+        </tr>
+      </table>
+    <% end %>
+    <% if signed_in? and (current_user?(@user) or current_user.admin?) %>
+      <p><%= link_to "Editar o meu perfil", edit_user_path(@user) %></p>
+    <% end %>
+    <% if current_user.admin? && !@user.admin? %>
+      <p><%= link_to "Apagar Conta", @user, method: :delete, data: { confirm: "Tem a certeza que quer eliminar o utilizador #{@user.name}?" } %></p>
+    <% end %>
+  </div>
+  <div id="profile-oni">
+    <table>
+      <tr>
+        <th>Qualificações</th>
+        <th>Finais</th>
+        <th>IOI</th>
+        <th>Vitórias nas ONI</th>
+      </tr>
+      <tr>
+        <td><%= @user.qualifications %></td>
+        <td><%= @user.finals %></td>
+        <td><%= @user.iois %></td>
+        <td><%= @user.wins %></td>
+      </tr>
+    </table>
+    <% if @user.bronze > 0 %>
+      <p><%= image_tag("bronze.png", alt: "Bronze") %> <%= @user.bronze %> Bronze nas IOI;</p>
+    <% end %>
+    <% if @user.silver > 0 %>
+      <p><%= image_tag("silver.png", alt: "Prata") %> <%= @user.silver %> Prata nas IOI;</p>
+    <% end %>
+    <% if @user.gold > 0 %>
+      <p><%= image_tag("gold.png", alt: "Ouro") %> <%= @user.gold %> Ouro nas IOI;</p>
+    <% end %>
+  </div>
+  <div id="profile-stats">
+    <h3>Estatísticas do Loop</h3>
+    <p>Sem participações...</p>
+  </div>
+</div>

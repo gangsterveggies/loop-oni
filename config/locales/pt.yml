@@ -208,3 +208,6 @@ pt:
     attributes:
       user:
         name: "Nome"
+        grade: "Ano Escolar"
+        school: "Escola"
+        city: "Cidade"

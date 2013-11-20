@@ -232,6 +232,87 @@ input {
   }
 }
 
+
+/* Profile */
+
+#profile {
+  margin-top: 10px;
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #profile-img {
+    float: left;
+    margin-right: 25px;
+    margin-top: 20px;
+    width: 180px;
+    text-align: center;
+  }
+
+
+  #profile-top {
+    table {
+      td {
+        font-size: 1.2em;
+        padding-right: 30px;
+      }
+    }
+  }
+
+  #profile-oni {
+    clear: both;
+    padding-top: 30px;
+
+    p {
+      img {
+        vertical-align: middle;
+        padding-bottom: 1px;
+        padding-right: 5px;
+      }
+
+      margin-left: 10px;
+      line-height: 1.3em;
+      margin-top: 10px;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    table {
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+      margin: auto;
+      width: 750px;
+      background-color: $ONIRed;
+      color: $ONIYellow;
+
+      td, th {
+        font-family: sans-serif;
+        text-align: center;
+        width: 25%;
+        border-left: 1px solid $ONIRedDark;
+
+        &:first-child {
+          border-left: none;
+        }
+      }
+      th {
+        font-variant: small-caps;
+        border-bottom: 1px solid $ONIRedDark;
+      }
+      td {
+        height: 35px;
+        line-height: 35px;
+      }
+    }
+  }
+
+  #profile-stats {
+    margin-top: 20px;
+  }
+}
+
+
 /* footer */
 
 footer {

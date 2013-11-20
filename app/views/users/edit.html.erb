@@ -1,10 +1,10 @@
-<% provide(:title, 'Registo') %>
-<h1>Registo</h1>
+<% provide(:title, "Editar Conta") %>
+<h1>Editar Conta</h1>
 
 <div class="row">
   <div class="span6 offset3">
-    <%= render 'shared/error_messages' %>
     <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
 
       <%= f.label :name, "Nome" %>
       <%= f.text_field :name %>
@@ -27,7 +27,7 @@
       <%= f.label :password_confirmation, "Confirmação de Password" %>
       <%= f.password_field :password_confirmation %>
 
-      <%= f.submit "Criar Conta", class: "button-style" %>
+      <%= f.submit "Guardar Modificações", class: "button-style" %>
     <% end %>
   </div>
 </div>
