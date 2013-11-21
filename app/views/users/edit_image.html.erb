@@ -8,8 +8,10 @@
   
       <%= f.label :profile_image, "Imagem de Perfil" %>
       <%= f.file_field :profile_image %>
+
+      <p>Atenção: A imagem será reduzida para um tamanho de 180x180.</p>
       
-      <%= f.submit "Enviar Imagem", class: "button-style" %>
+      <p><%= f.submit "Enviar Imagem", class: "button-style" %></p>
     <% end %>
   </div>
 </div>

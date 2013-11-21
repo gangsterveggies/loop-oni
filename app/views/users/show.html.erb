@@ -25,6 +25,7 @@
     <% end %>
     <% if signed_in? and (current_user?(@user) or current_user.admin?) %>
       <p><%= link_to "Editar o meu perfil", edit_user_path(@user) %></p>
+      <p><%= link_to "Mudar a Password", edit_user_path(@user, :form => 'password') %></p>
     <% end %>
     <% if current_user.admin? && !@user.admin? %>
       <p><%= link_to "Apagar Conta", @user, method: :delete, data: { confirm: "Tem a certeza que quer eliminar o utilizador #{@user.name}?" } %></p>

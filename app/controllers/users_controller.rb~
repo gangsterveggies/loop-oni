@@ -31,21 +31,36 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @user.grade = get_grade_from_year(@user.graduation_year)
+    if params[:form] == "image"
+      render 'new_img'
+    end
   end
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      flash[:success] = "Conta atualizada"
-      redirect_to @user
+    if params[:user][:profile_image]
+      params[:user][:grade] = get_grade_from_year(@user.graduation_year)
+      if @user.update_attributes(user_params)
+        flash[:success] = "Imagem atualizada"
+        redirect_to @user
+      else
+        render 'edit'
+      end
+    elsif params[:user][:password]
+      @user.updating_password = true
     else
-      render 'edit'
+      if @user.update_attributes(user_params)
+        flash[:success] = "Conta atualizada"
+        redirect_to @user
+      else
+        render 'edit'
+      end
     end
   end
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :grade, :school, :city, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :grade, :school, :city, :profile_image, :password, :password_confirmation)
     end
 
     def signed_in_user

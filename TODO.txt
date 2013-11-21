@@ -1,7 +1,4 @@
 Next time:
-     - Update contestant model;
-     - Add administration;
-     - Add password forget;
      - Add user index (graduation year cheat)
      - Notifications;
      - Articles model;
@@ -10,5 +7,11 @@ Next time:
      - Create guides;
      - Create problems;
 
+Not-Done:
+     - Forgot Password and Email Validation
+     - More Language Support in forms
+
 Done:
      - Base login;
+     - Update contestant model;
+     - Add administration;

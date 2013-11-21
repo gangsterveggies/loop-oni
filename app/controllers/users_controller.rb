@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class UsersController < ApplicationController
   before_action :signed_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
@@ -32,7 +33,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.grade = get_grade_from_year(@user.graduation_year)
     if params[:form] == "image"
-      render 'new_img'
+      render 'edit_image'
+    elsif params[:form] == "password"
+      render 'edit_password'
     end
   end
 
@@ -44,11 +47,29 @@ class UsersController < ApplicationController
         flash[:success] = "Imagem atualizada"
         redirect_to @user
       else
-        render 'edit'
+        render 'edit_image'
       end
     elsif params[:user][:password]
       @user.updating_password = true
+      params[:user][:grade] = get_grade_from_year(@user.graduation_year)
+      if @user && @user.authenticate(params[:user][:old_password])
+        if @user.update_attributes(user_params)
+          flash[:success] = "Password atualizada"
+          redirect_to @user
+        else
+          render 'edit_password'
+        end
+      else
+        flash.now[:error] = 'Password antiga errada...'
+        render 'edit_password'
+      end
     else
+      if !current_user.admin?
+        if params[:user][:qualifications] or params[:user][:finals] or params[:user][:iois] or params[:user][:wins] or params[:user][:bronze] or params[:user][:silver] or params[:user][:gold]
+          flash[:error] = "Não tem permissões para alterar alguns dos parametros"
+          redirect_to @user and return
+        end
+      end
       if @user.update_attributes(user_params)
         flash[:success] = "Conta atualizada"
         redirect_to @user
@@ -60,7 +81,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :grade, :school, :city, :profile_image, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :grade, :school, :city, :profile_image, :password, :password_confirmation, :qualifications, :finals, :iois, :wins, :bronze, :silver, :gold)
     end
 
     def signed_in_user

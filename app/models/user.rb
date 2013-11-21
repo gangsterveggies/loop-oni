@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :grade, :updating_password, :updating_stats
-  before_save :setup_user
-  before_create :create_remember_token
+  before_create :setup_user
   before_update :update_user
   mount_uploader :profile_image, ImageUploader
 
@@ -12,6 +11,9 @@ class User < ActiveRecord::Base
   validates :grade, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 12 }, :if => :should_validate_stats?
   validates :school, length: { maximum: 100 }, :allow_nil => true
   validates :city, length: { maximum: 100 }, :allow_nil => true
+  validates :qualifications, :presence => false
+  validates :finals, :presence => false
+  validates :iois, :presence => false
   has_secure_password
 
   def User.new_remember_token
@@ -46,6 +48,7 @@ class User < ActiveRecord::Base
       else
         self.contestant_type = 1
       end
+      create_remember_token
     end
 
     def update_user

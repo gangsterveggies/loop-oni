@@ -21,6 +21,29 @@
       <%= f.label :school, "Escola" %>
       <%= f.text_field :school %>
 
+      <% if current_user.admin? %>
+        <%= f.label :qualifications, "Qualificações" %>
+        <%= f.number_field :qualifications %>
+
+        <%= f.label :finals, "Finais" %>
+        <%= f.text_field :finals %>
+
+        <%= f.label :wins, "IOIs" %>
+        <%= f.text_field :iois %>
+        
+        <%= f.label :wins, "Vitórias" %>
+        <%= f.text_field :wins %>
+
+        <%= f.label :bronze, "Bronzes" %>
+        <%= f.text_field :bronze %>
+
+        <%= f.label :silver, "Pratas" %>
+        <%= f.text_field :silver %>
+
+        <%= f.label :gold, "Ouros" %>
+        <%= f.text_field :gold %>
+      <% end %>
+
       <%= f.submit "Guardar Modificações", class: "button-style" %>
     <% end %>
   </div>
