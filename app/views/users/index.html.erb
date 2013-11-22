@@ -1,0 +1,16 @@
+<% provide(:title, 'Todos os Concorrentes') %>
+<h1>Todos os Concorrentes</h1>
+
+<div id="index-users">
+  <%= will_paginate %>
+
+  <ul>
+    <% @users.each do |user| %>
+      <li class="user">
+        <%= link_to user.name, user %>: <%= get_grade_from_year(user.graduation_year) %>º ano
+      </li>
+    <% end %>
+  </ul>
+
+  <%= will_paginate %>
+</div>
