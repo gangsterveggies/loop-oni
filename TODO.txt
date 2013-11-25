@@ -1,7 +1,6 @@
 Next time:
-     - Add user index (graduation year cheat)
-     - Notifications;
      - Articles model;
+     - Notifications;
      - Add contests (user "follow" contest);
      - Tag articles;
      - Create guides;
@@ -15,3 +14,4 @@ Done:
      - Base login;
      - Update contestant model;
      - Add administration;
+     - Add user index
