@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    @users = User.order("name ASC").paginate(page: params[:page], per_page: 20)
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save

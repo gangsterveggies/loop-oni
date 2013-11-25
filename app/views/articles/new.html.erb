@@ -1,0 +1,18 @@
+<% provide(:title, 'Novo Artigo') %>
+<h1>Novo Artigo</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= render 'shared/article_error_messages' %>
+    <%= form_for(@article) do |f| %>
+
+      <%= f.label :title, "Título" %>
+      <%= f.text_field :title %>
+
+      <%= f.label :content, "Artigo:" %>
+      <%= f.text_area :content , :rows => 20 %>
+
+      <%= f.submit "Criar Artigo", class: "button-style" %>
+    <% end %>
+  </div>
+</div>
