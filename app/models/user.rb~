@@ -43,29 +43,23 @@ class User < ActiveRecord::Base
       self.silver = 0
       self.gold = 0
       create_grad_year
-      if (grade.present? and Integer(grade) > 4 and Integer(grade) <= 12)
-        self.contestant_type = 0
-      else
-        self.contestant_type = 1
-      end
       create_remember_token
     end
 
     def update_user
       create_grad_year
-      if (grade.present? and Integer(grade) > 4 and Integer(grade) <= 12)
-        self.contestant_type = 0
-      else
-        self.contestant_type = 1
-      end
     end
-
 
     def create_grad_year
       if (grade.present? and Integer(grade) > 0)
         self.graduation_year = get_year_from_grade(Integer(grade))
-      else
+      elsif (grade.present?)
         self.graduation_year = 0
+      end
+      if (grade.present? and Integer(grade) > 4 and Integer(grade) <= 12)
+        self.contestant_type = 0
+      elsif (grade.present?)
+        self.contestant_type = 1
       end
     end
 

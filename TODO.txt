@@ -1,4 +1,5 @@
 Next time:
+     - Change error_messages helper;
      - Articles model;
      - Notifications;
      - Add contests (user "follow" contest);

@@ -1,6 +1,13 @@
 <% provide(:title, 'Lista de Artigos') %>
 <h1>Lista de Artigos</h1>
 
+<div id="search-box">
+  <%= form_tag articles_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] , placeholder: "Procurar Artigo..." %>
+    <%= submit_tag "Procurar", :name => nil , class: "button-style"%>
+  <% end %>
+</div>
+
 <div id="index-articles">
   <%= will_paginate %>
 

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :read_relationships, foreign_key: "user_id", dependent: :destroy
+  has_many :read_articles, through: :read_relationships, source: :article
   attr_accessor :grade, :updating_password, :updating_stats
   before_create :setup_user
   before_update :update_user
@@ -15,6 +17,18 @@ class User < ActiveRecord::Base
   validates :finals, :presence => false
   validates :iois, :presence => false
   has_secure_password
+
+  def read?(article)
+    read_relationships.find_by(article_id: article.id)
+  end
+
+  def read!(article)
+    read_relationships.create!(article_id: article.id)
+  end
+
+  def unread!(article)
+    read_relationships.find_by(article_id: article.id).destroy!
+  end
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

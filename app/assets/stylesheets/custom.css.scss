@@ -313,6 +313,19 @@ input {
 }
 
 
+/* search bar */
+
+#search-box {
+  width: 50%;
+  height: 25px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+  #search {
+    width: 50%;
+  }
+}
+
+
 /* user index */
 
 #index-users {

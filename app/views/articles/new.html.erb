@@ -10,7 +10,7 @@
       <%= f.text_field :title %>
 
       <%= f.label :content, "Artigo:" %>
-      <%= f.text_area :content , :rows => 20 %>
+      <%= f.text_area :content , :rows => 20, placeholder: "Escreva aqui o artigo..." %>
 
       <%= f.submit "Criar Artigo", class: "button-style" %>
     <% end %>

@@ -2,6 +2,7 @@ Loop::Application.routes.draw do
   resources :users
   resources :articles
   resources :sessions, only: [:new, :create, :destroy]
+  resources :read_relationships, only: [:create, :destroy]
   root  'cover_pages#home'
   match '/signup',         to: 'users#new',           via: 'get'
   match '/signin',         to: 'sessions#new',        via: 'get'
