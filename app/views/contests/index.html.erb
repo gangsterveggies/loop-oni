@@ -1,0 +1,26 @@
+<% provide(:title, 'Concursos') %>
+<h1>Concursos</h1>
+
+<div id="index-contests">
+  <%= will_paginate %>
+
+  <ul>
+    <% @contests.each do |contest| %>
+      <li class="contest">
+        <%= link_to contest.title, contest %>
+        <% if signed_in? and current_user.admin? %>
+          , <%= link_to "Apagar Concurso", contest, method: :delete, data: { confirm: "Tem a certeza que quer eliminar o concurso #{contest.title}?" } %>
+    <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= will_paginate %>
+
+<% if signed_in? and current_user.admin? %>
+  <div id="create-contest">
+    <%= link_to "Novo Concurso", new_contest_path%>
+  </div>
+<% end %>
+
+</div>

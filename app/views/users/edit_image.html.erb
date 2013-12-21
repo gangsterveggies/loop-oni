@@ -3,8 +3,8 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= render 'shared/error_messages' %>
     <%= form_for(@user, :html => { :multipart => true }) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
   
       <%= f.label :profile_image, "Imagem de Perfil" %>
       <%= f.file_field :profile_image %>

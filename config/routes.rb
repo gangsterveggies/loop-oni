@@ -1,6 +1,7 @@
 Loop::Application.routes.draw do
   resources :users
   resources :articles
+  resources :contests
   resources :sessions, only: [:new, :create, :destroy]
   resources :read_relationships, only: [:create, :destroy]
   root  'cover_pages#home'

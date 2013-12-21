@@ -1,6 +1,6 @@
 Next time:
+     - Work on User non-contestant;
      - Change error_messages helper;
-     - Articles model;
      - Notifications;
      - Add contests (user "follow" contest);
      - Tag articles;
@@ -12,6 +12,7 @@ Not-Done:
      - More Language Support in forms
 
 Done:
+     - Articles model;
      - Base login;
      - Update contestant model;
      - Add administration;
