@@ -58,6 +58,10 @@
   </div>
   <div id="profile-stats">
     <h3>Estatísticas do Loop</h3>
-    <p>Sem participações...</p>
+    <% if @user.participate_contests.count == 0 %>
+      <p>Sem participações...</p>
+    <% else %>
+      <p><%= @user.participate_contests.count %></p>
+    <% end %>
   </div>
 </div>

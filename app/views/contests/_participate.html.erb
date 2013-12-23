@@ -1,0 +1,5 @@
+<%= form_for(current_user.participate_relationships.build(contest_id: @contest.id), remote: true) do |f| %>
+  <%= f.hidden_field :contest_id %>
+  Não inscrito no concurso, 
+  <%= f.submit "Inscrever", class: "button-style" %>
+<% end %>

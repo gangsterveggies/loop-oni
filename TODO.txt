@@ -6,14 +6,15 @@ Next time:
      - Tag articles;
      - Create guides;
      - Create problems;
+     - Change number input (grade/year) to dropdown;
 
 Not-Done:
-     - Forgot Password and Email Validation
-     - More Language Support in forms
+     - Forgot Password and Email Validation;
+     - More Language Support in forms;
 
 Done:
      - Articles model;
      - Base login;
      - Update contestant model;
      - Add administration;
-     - Add user index
+     - Add user index;

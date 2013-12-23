@@ -9,6 +9,7 @@
       <li class="contest">
         <%= link_to contest.title, contest %>
         <% if signed_in? and current_user.admin? %>
+          , <%= link_to "Editar Concurso", edit_contest_path(contest) %>
           , <%= link_to "Apagar Concurso", contest, method: :delete, data: { confirm: "Tem a certeza que quer eliminar o concurso #{contest.title}?" } %>
     <% end %>
       </li>
@@ -17,10 +18,10 @@
 
   <%= will_paginate %>
 
-<% if signed_in? and current_user.admin? %>
-  <div id="create-contest">
-    <%= link_to "Novo Concurso", new_contest_path%>
-  </div>
-<% end %>
+  <% if signed_in? and current_user.admin? %>
+    <div id="create-contest">
+      <%= link_to "Novo Concurso", new_contest_path%>
+    </div>
+  <% end %>
 
 </div>

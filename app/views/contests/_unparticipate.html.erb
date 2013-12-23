@@ -1,0 +1,5 @@
+<%= form_for(current_user.participate_relationships.find_by(contest_id: @contest),
+    html: { method: :delete }, remote: true) do |f| %>
+  Inscrito no concurso, 
+  <%= f.submit "Desincrever", class: "button-style" %>
+<% end %>

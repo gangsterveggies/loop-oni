@@ -184,6 +184,15 @@ nav {
       color: $ONIYellowDark;
       text-decoration: none;
     }
+
+    &.reverse {
+      color: $ONIYellow;
+      font-weight: bold;
+      &:hover {
+        color: $ONIRedDark;
+        text-decoration: none;
+      }
+    }
   }
 
   ul {
@@ -232,6 +241,12 @@ input {
   }
 }
 
+.tag-line {
+  font-size: 1.4em;
+  margin-top: -25px;
+  text-align: center;
+  margin-left: 50px;
+}
 
 /* Profile */
 
@@ -313,6 +328,62 @@ input {
 }
 
 
+/* Contest */
+
+#date-table {
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  margin: auto;
+  width: 750px;
+  background-color: $ONIRed;
+  color: $ONIYellow;
+
+  td, th {
+    font-family: sans-serif;
+    text-align: center;
+    width: 25%;
+    border-left: 1px solid $ONIRedDark;
+
+    &:first-child {
+      border-left: none;
+    }
+  }
+  th {
+    font-variant: small-caps;
+    border-bottom: 1px solid $ONIRedDark;
+  }
+  td {
+    height: 35px;
+    line-height: 35px;
+  }
+}
+
+#contest-body {
+  width: 750px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+
+/* form styles */
+
+#participate-form {
+  text-align: center;
+}
+
+.date-select {
+  margin-top: -12px;
+
+  select{
+    width: 70px;
+    margin-top: 12px;
+    &:nth-child(2) {
+      width: 100px;
+    }
+  }
+}
+
+
 /* search bar */
 
 #search-box {
@@ -336,13 +407,6 @@ input {
   .user {
     margin-left: 30px;
   }
-}
-
-
-.date-select select{
-float: left;
-width: 15%;
-display: inline;
 }
 
 /* footer */

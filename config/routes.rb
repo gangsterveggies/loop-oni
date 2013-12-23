@@ -4,6 +4,7 @@ Loop::Application.routes.draw do
   resources :contests
   resources :sessions, only: [:new, :create, :destroy]
   resources :read_relationships, only: [:create, :destroy]
+  resources :participate_relationships, only: [:create, :destroy]
   root  'cover_pages#home'
   match '/signup',         to: 'users#new',           via: 'get'
   match '/signin',         to: 'sessions#new',        via: 'get'

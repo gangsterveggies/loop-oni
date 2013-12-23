@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   has_many :read_relationships, foreign_key: "user_id", dependent: :destroy
   has_many :read_articles, through: :read_relationships, source: :article
   attr_accessor :grade, :updating_password, :updating_stats
+  has_many :participate_relationships, foreign_key: "user_id", dependent: :destroy
+  has_many :participate_contests, through: :participate_relationships, source: :contest
+  attr_accessor :grade, :updating_password, :updating_stats
   before_create :setup_user
   before_update :update_user
   mount_uploader :profile_image, ImageUploader
@@ -28,6 +31,18 @@ class User < ActiveRecord::Base
 
   def unread!(article)
     read_relationships.find_by(article_id: article.id).destroy!
+  end
+
+  def participate?(contest)
+    participate_relationships.find_by(contest_id: contest.id)
+  end
+
+  def participate!(contest)
+    participate_relationships.create!(contest_id: contest.id)
+  end
+
+  def unparticipate!(contest)
+    participate_relationships.find_by(contest_id: contest.id).destroy!
   end
 
   def User.new_remember_token
