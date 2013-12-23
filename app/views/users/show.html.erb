@@ -61,7 +61,18 @@
     <% if @user.participate_contests.count == 0 %>
       <p>Sem participações...</p>
     <% else %>
-      <p><%= @user.participate_contests.count %></p>
+      <p>Concursos Inscritos:</p>
+      <ul>
+        <% @signed_contests.each do |contest| %>
+          <li><%= link_to contest.title, contest %></li>
+        <% end %>
+      </ul>
+      <p>Concursos Acabados:</p>
+      <ul>
+        <% @done_contests.each do |contest| %>
+          <li><%= link_to contest.title, contest %></li>
+        <% end %>
+      </ul>
     <% end %>
   </div>
 </div>

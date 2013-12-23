@@ -1,7 +1,7 @@
 <% if signed_in? %>
   Logado como <%= link_to current_user.email, current_user %>
   <% if current_user.admin? %>
-    [Admin]
+    [<%= link_to "Admin", admin_path %>]
   <% end %>
   , <%= link_to "logout", signout_path, method: "delete" %>
 <% else %>
