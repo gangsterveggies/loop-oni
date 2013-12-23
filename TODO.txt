@@ -2,7 +2,6 @@ Next time:
      - Work on User non-contestant;
      - Change error_messages helper;
      - Notifications;
-     - Add contests (user "follow" contest);
      - Tag articles;
      - Create guides;
      - Create problems;
@@ -18,3 +17,4 @@ Done:
      - Update contestant model;
      - Add administration;
      - Add user index;
+     - Add contests (user "follow" contest);

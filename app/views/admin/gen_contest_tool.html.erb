@@ -1,3 +1,10 @@
 <% provide(:title, 'Gerar lista de Concorrentes') %>
 <h1>Gerar lista de Concorrentes</h1>
-<p>(coming soon)</p>
+<% unless @users.nil? %>
+<p><b>Concurso:</b> <%= @contest.title %></p>
+<pre><% @users.each do |user| %><%= user.name %>, <%= user.email %>, <%= get_grade_from_year(user.graduation_year) %>
+<% end %></pre>
+<% end %>
+<% @contests.each do |contest| %>
+  <p><%= link_to contest.title, gen_contest_path(:type => contest.id) %></p>
+<% end %>
