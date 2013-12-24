@@ -1,0 +1,16 @@
+<% provide(:title, 'Lista de Notificações') %>
+<h1>Lista de Notificações</h1>
+
+<%= will_paginate %>
+
+<ul>
+  <% @announcements.each do |announcement| %>
+    <li>
+      <i><%= truncate(announcement.message, length: 50) %></i>, <%= link_to "Editar Notificação", edit_announcement_path(announcement) %>, <%= link_to "Apagar Notificação", announcement, method: :delete, data: { confirm: "Tem a certeza que quer eliminar a notificação #{truncate(announcement.message, length: 20)}?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
+
+<%= link_to "Nova Notificação", new_announcement_path %>

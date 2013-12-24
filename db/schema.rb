@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131223162918) do
+ActiveRecord::Schema.define(version: 20131224043240) do
+
+  create_table "add_announcements", force: true do |t|
+    t.text     "message"
+    t.datetime "begin_date"
+    t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "announcements", force: true do |t|
+    t.text     "message"
+    t.datetime "begin_date"
+    t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "announcements", ["begin_date"], name: "index_announcements_on_begin_date"
 
   create_table "articles", force: true do |t|
     t.text     "content"
@@ -76,8 +94,9 @@ ActiveRecord::Schema.define(version: 20131223162918) do
     t.integer  "silver"
     t.integer  "gold"
     t.integer  "contestant_type"
-    t.boolean  "admin",           default: false
+    t.boolean  "admin",                  default: false
     t.string   "profile_image"
+    t.datetime "announcement_hide_time"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

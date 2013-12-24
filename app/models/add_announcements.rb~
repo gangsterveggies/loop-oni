@@ -1,0 +1,2 @@
+class AddAnnouncements < ActiveRecord::Base
+end

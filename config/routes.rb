@@ -2,16 +2,19 @@ Loop::Application.routes.draw do
   resources :users
   resources :articles
   resources :contests
+  resources :announcements, only: [:new, :create, :edit, :update, :index, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :read_relationships, only: [:create, :destroy]
   resources :participate_relationships, only: [:create, :destroy]
+
   root  'cover_pages#home'
-  match '/signup',         to: 'users#new',              via: 'get'
-  match '/signin',         to: 'sessions#new',           via: 'get'
-  match '/signout',        to: 'sessions#destroy',       via: 'delete'
-  match '/admin',          to: 'admin#panel',            via: 'get'
-  match '/gen_contest',    to: 'admin#gen_contest_tool', via: 'get'
-  match '/help',           to: 'cover_pages#help',       via: 'get'
+  match '/hide_announcement',   to: 'javascripts#hide_announcement',   via: 'get'
+  match '/signup',              to: 'users#new',                       via: 'get'
+  match '/signin',              to: 'sessions#new',                    via: 'get'
+  match '/signout',             to: 'sessions#destroy',                via: 'delete'
+  match '/admin',               to: 'admin#panel',                     via: 'get'
+  match '/gen_contest',         to: 'admin#gen_contest_tool',          via: 'get'
+  match '/help',                to: 'cover_pages#help',                via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

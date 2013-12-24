@@ -1,11 +1,11 @@
 Next time:
      - Work on User non-contestant;
      - Change error_messages helper;
-     - Notifications;
      - Tag articles;
      - Create guides;
      - Create problems;
      - Change number input (grade/year) to dropdown;
+     - Finish help file
 
 Not-Done:
      - Forgot Password and Email Validation;
@@ -18,3 +18,4 @@ Done:
      - Add administration;
      - Add user index;
      - Add contests (user "follow" contest);
+     - Notifications;
