@@ -19,7 +19,7 @@
             <% for announcement in current_announcements %>
              <p><b>Notificação:</b> <%= announcement.message %></p>
             <% end %>
-            <p><%= link_to "Esconder Notificação", "/hide_announcement.js", remote: true  %></p>
+            <p><%= link_to "Esconder Notificações", "/hide_announcement.js", remote: true  %></p>
           </div>
         <% end %>
 

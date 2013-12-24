@@ -5,7 +5,9 @@ Next time:
      - Create guides;
      - Create problems;
      - Change number input (grade/year) to dropdown;
-     - Finish help file
+     - Finish help file;
+     - Add Codeforces/Topcoder/Social accounts;
+     - Add animations/transitions;
 
 Not-Done:
      - Forgot Password and Email Validation;
