@@ -16,6 +16,7 @@
       <li class="article">
         <%= link_to article.title, article %>
         <% if signed_in? and current_user.admin? %>
+          , <%= link_to "Editar Artigo", edit_article_path(article) %>
           , <%= link_to "Apagar Artigo", article, method: :delete, data: { confirm: "Tem a certeza que quer eliminar o artigo #{article.title}?" } %>
     <% end %>
       </li>
