@@ -1,10 +1,9 @@
 class Article < ActiveRecord::Base
   has_many :read_relationships, foreign_key: "article_id", dependent: :destroy
   has_many :users_read, through: :read_relationships, source: :user
+  default_scope -> { order('title ASC') }
   validates :title, presence: true
   validates :content, presence: true
-
-
 
   def self.search(search, page)
     if search

@@ -1,0 +1,17 @@
+class GuideRelationshipsController < ApplicationController
+  before_action :admin_user
+
+  def create
+    @article = Article.find(params[:guide_relationship][:article_id])
+    @guide = Guide.find(params[:guide_relationship][:guide_id])
+    guide.include!(@article)
+    redirect_to @guide
+  end
+
+  def destroy
+    @article = Article.find(params[:guide_relationship][:article_id])
+    @guide = Guide.find(params[:guide_relationship][:guide_id])
+    guide.remove!(@article)
+    redirect_to @guide
+  end
+end

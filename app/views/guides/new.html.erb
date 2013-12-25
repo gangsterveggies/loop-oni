@@ -1,0 +1,21 @@
+<% provide(:title, 'Novo Guia') %>
+<h1>Novo Guia</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@guide) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :title, "Título" %>
+      <%= f.text_field :title %>
+
+      <%= f.label :description, "Descrição:" %>
+      <%= f.text_area :description , :rows => 20, placeholder: "Escreva aqui a descrição..." %>
+
+      <%= f.submit "Criar Guia", class: "button-style" %>
+    <% end %>
+  </div>
+</div>
+<div class="alert alert-info">
+  <b>Nota:</b> Para adicionar artigos ir à página do artigo.
+</div>

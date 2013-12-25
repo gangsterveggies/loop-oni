@@ -1,0 +1,22 @@
+<% provide(:title, 'Lista de Guias') %>
+<h1>Lista de Guias</h1>
+
+<div>
+  <ul>
+    <% @guides.each do |guide| %>
+      <li>
+        <%= link_to guide.title, guide %>, (<%= guide.articles.count %> Artigos)
+        <% if signed_in? and current_user.admin? %>
+          , <%= link_to "Editar Guia", edit_guide_path(guide) %>
+          , <%= link_to "Apagar Guia", guide, method: :delete, data: { confirm: "Tem a certeza que quer eliminar o guia #{guide.title}?" } %>
+    <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <% if signed_in? and current_user.admin? %>
+    <div>
+      <%= link_to "Novo Guia", new_guide_path%>
+    </div>
+  <% end %>
+</div>

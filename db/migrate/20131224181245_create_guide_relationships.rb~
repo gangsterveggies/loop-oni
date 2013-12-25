@@ -1,0 +1,8 @@
+class CreateGuideRelationships < ActiveRecord::Migration
+  def change
+    create_table :guide_relationships do |t|
+
+      t.timestamps
+    end
+  end
+end

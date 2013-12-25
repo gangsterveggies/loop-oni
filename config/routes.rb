@@ -2,10 +2,12 @@ Loop::Application.routes.draw do
   resources :users
   resources :articles
   resources :contests
+  resources :guides
   resources :announcements, only: [:new, :create, :edit, :update, :index, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :read_relationships, only: [:create, :destroy]
   resources :participate_relationships, only: [:create, :destroy]
+  resources :guide_relationships, only: [:create, :destroy]
 
   root  'cover_pages#home'
   match '/hide_announcement',   to: 'javascripts#hide_announcement',   via: 'get'

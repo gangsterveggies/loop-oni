@@ -1,7 +1,19 @@
-<div id="read-form">
-  <% if current_user.read?(@article) %>
-    <%= render 'unread' %>
-  <% else %>
-    <%= render 'read' %>
+<div id="article-form">
+  <div id="read-form">
+    <% if current_user.read?(@article) %>
+      <%= render 'unread' %>
+    <% else %>
+      <%= render 'read' %>
+    <% end %>
+  </div>
+  <% if current_user.admin? and !@guide_list.empty? %>
+    <div id="admin-form">
+      <%= form_for (@guide_rel) do |f| %>
+        <%= f.hidden_field :article_id %>
+        Adicionar artigo a guia: 
+        <%= f.collection_select :guide_id, @guide_list, :id, :truncate_title %>
+        <%= f.submit "Adicionar", class: "button-style" %>
+      <% end %>
+    </div>
   <% end %>
 </div>

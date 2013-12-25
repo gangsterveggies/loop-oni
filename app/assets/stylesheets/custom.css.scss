@@ -383,6 +383,30 @@ input {
   }
 }
 
+#article-form {
+  height: 70px;
+  margin-top: 50px;
+  border-top: 1px solid #808080;
+
+  #read-form {
+    height: 70px;
+    line-height: 70px;
+    float: left;
+    margin-left: 20px;
+  }
+
+  #admin-form {
+    height: 70px;
+    line-height: 70px;
+    float: right;
+    margin-right: 20px;
+
+    select {
+      width: 200px;
+      margin: 0px;
+    }
+  }
+}
 
 /* search bar */
 

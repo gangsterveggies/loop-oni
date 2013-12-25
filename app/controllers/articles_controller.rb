@@ -3,6 +3,9 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @guide_rel = GuideRelationship.new
+    @guide_rel.article_id = @article.id
+    @guide_list = Guide.find_but(@article)
   end
 
   def new

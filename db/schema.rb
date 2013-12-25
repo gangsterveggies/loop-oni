@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131224043240) do
-
-  create_table "add_announcements", force: true do |t|
-    t.text     "message"
-    t.datetime "begin_date"
-    t.datetime "end_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20131224181245) do
 
   create_table "announcements", force: true do |t|
     t.text     "message"
@@ -55,6 +47,25 @@ ActiveRecord::Schema.define(version: 20131224043240) do
   add_index "contests", ["begin_date"], name: "index_contests_on_begin_date"
   add_index "contests", ["title"], name: "index_contests_on_title"
   add_index "contests", ["topic"], name: "index_contests_on_topic"
+
+  create_table "guide_relationships", force: true do |t|
+    t.integer  "guide_id"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "guide_relationships", ["guide_id", "article_id"], name: "index_guide_relationships_on_guide_id_and_article_id", unique: true
+  add_index "guide_relationships", ["guide_id"], name: "index_guide_relationships_on_guide_id"
+
+  create_table "guides", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "guides", ["title"], name: "index_guides_on_title"
 
   create_table "participate_relationships", force: true do |t|
     t.integer  "user_id"
