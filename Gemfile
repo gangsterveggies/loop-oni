@@ -9,6 +9,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'acts_as_list'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

@@ -1,6 +1,18 @@
 <% provide(:title, @article.title) %>
 <h1><%= @article.title %></h1>
 <%= raw @article.content %>
+
+<div id="article-footer">
+  <p>
+    <% if signed_in? and current_user.admin? %>
+      <%= link_to "Editar", edit_article_path(@article) %> | 
+    <% end %>
+    <% if @article.tag_list.count > 0 %>
+      <span class="icon icon-tag"></span> <b>Categorias:</b> <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+    <% end %>
+  </p>
+</div>
+
 <% if signed_in? %>
   <%= render 'read_form' %>
 <% end %>

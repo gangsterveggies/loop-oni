@@ -1,5 +1,5 @@
 <%= form_for(current_user.read_relationships.find_by(article_id: @article),
     html: { method: :delete }, remote: true) do |f| %>
-  Artigo marcado como Lido, 
+  Artigo marcado como <b>Lido</b>,
   <%= f.submit "Marcar como Não Lido", class: "button-style" %>
 <% end %>

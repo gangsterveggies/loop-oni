@@ -11,6 +11,8 @@ Loop::Application.routes.draw do
   resources :guide_relationships do
     collection { post :sort }
   end
+  get 'categories/:tag', to: 'articles#index', as: :tag
+  get 'categories/',     to: 'tags#index'
   root  'cover_pages#home'
   match '/hide_announcement',   to: 'javascripts#hide_announcement',   via: 'get'
   match '/signup',              to: 'users#new',                       via: 'get'

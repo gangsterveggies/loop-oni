@@ -383,9 +383,33 @@ input {
   }
 }
 
+#article-footer {
+  margin-top: 40px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+
+  p {
+    font-size: 0.81em;
+  }
+}
+
+#tag_cloud {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  line-height: 1.6em;
+
+  a {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
+
 #article-form {
   height: 70px;
-  margin-top: 50px;
   border-top: 1px solid #808080;
 
   #read-form {

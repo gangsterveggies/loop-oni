@@ -3,14 +3,22 @@
 <h3>Descrição</h3>
 <%= simple_format(@guide.description) %>
 <h3>Lista de Artigos (<%= @guide_articles.count %>)</h3>
-<ul id="articles" data-update-url="<%= sort_guide_relationships_url %>" data-guide="<%= @guide.id %>">
-  <% @guide_articles.each do |article| %>
-    <%= content_tag_for :li, article do %>
-      <i class="icon-move handle"></i>
-      <%= link_to article.title, article %>        
-      <% if signed_in? and current_user.admin? %>
-        , <%= link_to "Remover Artigo", GuideRelationship.find_by(article_id: article.id, guide_id: @guide.id), method: :delete, data: { confirm: "Tem a certeza que quer remover o artigo #{article.title} deste Guia?" } %>
-       <% end %>
+
+<% if signed_in? and current_user.admin? %>
+  <ul id="articles" data-update-url="<%= sort_guide_relationships_url %>" data-guide="<%= @guide.id %>">
+    <% @guide_articles.each do |article| %>
+      <%= content_tag_for :li, article do %>
+        <i class="icon-move handle"></i>
+        <%= link_to article.title, article %>, <%= link_to "Remover Artigo", GuideRelationship.find_by(article_id: article.id, guide_id: @guide.id), method: :delete, data: { confirm: "Tem a certeza que quer remover o artigo #{article.title} deste Guia?" } %>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+<% else %>
+  <ul>
+    <% @guide_articles.each do |article| %>
+      <li>
+        <%= link_to article.title, article %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

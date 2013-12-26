@@ -1,6 +1,10 @@
 <% provide(:title, 'Lista de Artigos') %>
 <h1>Lista de Artigos</h1>
 
+<% unless @tag.empty? %>
+  <h3 class="tag-line">Categoria: <%= @tag %></h3>
+<% end %>
+
 <div id="search-box">
   <%= form_tag articles_path, :method => 'get' do %>
     <%= text_field_tag :search, params[:search] , placeholder: "Procurar Artigo..." %>
@@ -27,7 +31,7 @@
 
 <% if signed_in? and current_user.admin? %>
   <div id="create-article">
-    <%= link_to "Novo Artigo", new_article_path%>
+    <%= link_to "Novo Artigo", new_article_path %>
   </div>
 <% end %>
 

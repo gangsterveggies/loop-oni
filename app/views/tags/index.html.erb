@@ -1,0 +1,12 @@
+<% provide(:title, 'Lista de Categorias') %>
+<h1>Lista de Categorias</h1>
+
+<h3>Nuvem de Categorias:</h3>
+
+<div id="tag_cloud">
+  <% tag_cloud Article.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+<p>Ver todos os artigos <%= link_to "aqui", articles_path %></p>

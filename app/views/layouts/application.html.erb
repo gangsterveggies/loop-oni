@@ -14,7 +14,7 @@
     <%= render 'layouts/header' %>
     <div class="container" id="content">
       <div class="container" id="page">
-        <% unless current_announcements.empty? %>
+        <% unless current_announcements.nil? or current_announcements.empty? %>
           <div id="announcement-box" class="alert alert-warning">
             <% for announcement in current_announcements %>
              <p><b>Notificação:</b> <%= announcement.message %></p>

@@ -1,5 +1,5 @@
 <%= form_for(current_user.read_relationships.build(article_id: @article.id), remote: true) do |f| %>
   <%= f.hidden_field :article_id %>
-  Artigo marcado como Não Lido, 
+  Artigo marcado como <b>Não Lido</b>,
   <%= f.submit "Marcar como lido", class: "button-style" %>
 <% end %>
