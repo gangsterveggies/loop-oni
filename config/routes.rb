@@ -8,7 +8,9 @@ Loop::Application.routes.draw do
   resources :read_relationships, only: [:create, :destroy]
   resources :participate_relationships, only: [:create, :destroy]
   resources :guide_relationships, only: [:create, :destroy]
-
+  resources :guide_relationships do
+    collection { post :sort }
+  end
   root  'cover_pages#home'
   match '/hide_announcement',   to: 'javascripts#hide_announcement',   via: 'get'
   match '/signup',              to: 'users#new',                       via: 'get'

@@ -11,7 +11,7 @@ class GuidesController < ApplicationController
   end
 
   def index
-    @guides = Guide.all#search(params[:search], params[:page])
+    @guides = Guide.search(params[:search], params[:page])
   end
 
   def create
@@ -43,7 +43,6 @@ class GuidesController < ApplicationController
       render 'edit'
     end
   end
-
 
   private
     def guide_params

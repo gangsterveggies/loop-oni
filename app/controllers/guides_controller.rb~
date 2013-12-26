@@ -1,43 +1,44 @@
-class ArticlesController < ApplicationController
+class GuidesController < ApplicationController
   before_action :admin_user, only: [:edit, :update, :create, :destroy]
 
   def show
-    @article = Article.find(params[:id])
+    @guide = Guide.find(params[:id])
+    @guide_articles = @guide.articles
   end
 
   def new
-    @article = Article.new
+    @guide = Guide.new
   end
 
   def index
-    @articles = Article.search(params[:search], params[:page])
+    @guides = Guide.all#search(params[:search], params[:page])
   end
 
   def create
-    @article = Article.new(article_params)
-    if @article.save
-      flash[:success] = "Artigo adicionado com sucesso!"
-      redirect_to article_path(@article)
+    @guide = Guide.new(guide_params)
+    if @guide.save
+      flash[:success] = "Guia adicionado com sucesso!"
+      redirect_to guide_path(@guide)
     else
       render 'new'
     end
   end
 
   def destroy
-    Article.find(params[:id]).destroy
-    flash[:success] = "Artigo Apagado!"
-    redirect_to articles_path
+    Guide.find(params[:id]).destroy
+    flash[:success] = "Guia Apagado!"
+    redirect_to guides_path
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @guide = Guide.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
-    if @article.update_attributes(article_params)
-      flash[:success] = "Artigo atualizado"
-      redirect_to @article
+    @guide = Guide.find(params[:id])
+    if @guide.update_attributes(guide_params)
+      flash[:success] = "Guia atualizado"
+      redirect_to @guide
     else
       render 'edit'
     end
@@ -45,7 +46,7 @@ class ArticlesController < ApplicationController
 
 
   private
-    def article_params
-      params.require(:article).permit(:title, :content)
+    def guide_params
+      params.require(:guide).permit(:title, :description)
     end
 end

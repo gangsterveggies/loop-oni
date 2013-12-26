@@ -15,4 +15,12 @@ class GuideRelationshipsController < ApplicationController
     @guide.remove!(@article)
     redirect_to @guide
   end
+
+  def sort
+    @guide = params[:guide][0]
+    params[:article].each_with_index do |a_id, index|
+      GuideRelationship.update_all({position: index+1}, {article_id: a_id, guide_id: @guide})
+    end
+    render nothing: true
+  end
 end

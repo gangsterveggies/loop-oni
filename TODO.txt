@@ -2,7 +2,6 @@ Next time:
      - Work on User non-contestant;
      - Change error_messages helper;
      - Tag articles;
-     - Create guides;
      - Create problems;
      - Change number input (grade/year) to dropdown;
      - Finish help file;
@@ -22,3 +21,5 @@ Done:
      - Add user index;
      - Add contests (user "follow" contest);
      - Notifications;
+     - Create guides;
+     - Guides article order;

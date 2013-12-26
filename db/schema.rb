@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131224181245) do
+ActiveRecord::Schema.define(version: 20131225174241) do
 
   create_table "announcements", force: true do |t|
     t.text     "message"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20131224181245) do
     t.integer  "article_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   add_index "guide_relationships", ["guide_id", "article_id"], name: "index_guide_relationships_on_guide_id_and_article_id", unique: true
