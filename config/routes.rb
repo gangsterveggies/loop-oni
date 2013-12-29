@@ -3,6 +3,7 @@ Loop::Application.routes.draw do
   resources :articles
   resources :contests
   resources :guides
+  resources :problems
   resources :announcements, only: [:new, :create, :edit, :update, :index, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :read_relationships, only: [:create, :destroy]

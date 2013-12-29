@@ -1,8 +1,7 @@
 Next time:
      - Work on User non-contestant;
      - Change error_messages helper;
-     - Create problems;
-     - Tag problems;
+     - Add search and problem tag;
      - Change number input (grade/year) to dropdown;
      - Finish help file;
      - Add Codeforces/Topcoder/Social accounts;
@@ -11,6 +10,12 @@ Next time:
      - Add User order by years;
      - Add more admin support for users (show email...);
      - Add contest rules;
+     - Add style and custom for articles (syntx highlight...);
+     - Add pdf support (problems/articles);
+     - Add solved problem status;
+     - Add news (in home page);
+     - Correct validations on ALL models;
+     - Allow image upload for articles and problems;
 
 Not-Done:
      - Forgot Password and Email Validation;
@@ -27,3 +32,4 @@ Done:
      - Create guides;
      - Guides article order;
      - Tag articles;
+     - Create problems;

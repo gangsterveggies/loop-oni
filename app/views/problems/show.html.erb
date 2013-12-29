@@ -1,0 +1,38 @@
+<% provide(:title, @problem.title) %>
+
+<div id="problem-statement">
+  <% if @solution %>
+    <h1><%= @problem.title %> (Solução)</h1>
+    <%= raw @problem.solution %>
+  <% else %>
+    <h1><%= @problem.title %></h1>
+    <%= raw @problem.statement %>
+  <% end %>
+</div>
+
+<div id="problem-sidebar">
+  <h4>Links:</h4>
+  <% unless @problem.link.empty? %>
+    <a href="<%= @problem.link %>" target="_blank"><p class="button-style">Link do Problema</p></a>
+  <% end %>
+  <% unless @problem.submit_link.empty? %>
+    <a href="<%= @problem.submit_link %>" target="_blank"><p class="button-style">Link de Submissão</p></a>
+  <% end %>
+  <% unless @problem.solution.empty? %>
+    <% if @solution %>
+      <a href="<%= problem_path(@problem) %>"><p class="button-style">Link do Enunciado</p></a>
+    <% else %>
+      <a href="<%= problem_path(@problem, :solution => '1') %>"><p class="button-style">Link da Solução</p></a>
+    <% end %>
+  <% end %>
+</div>
+
+<div style="clear:both;"></div>
+
+<% unless @problem.notes.empty? %>
+  <div id="problem-footer">
+    <h3>Notas do Problema</h3>
+    <%= simple_format(@problem.notes) %>
+  </div>
+<% end %>
+

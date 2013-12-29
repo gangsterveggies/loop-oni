@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226013514) do
+ActiveRecord::Schema.define(version: 20131226024007) do
 
   create_table "announcements", force: true do |t|
     t.text     "message"
@@ -77,6 +77,19 @@ ActiveRecord::Schema.define(version: 20131226013514) do
 
   add_index "participate_relationships", ["user_id", "contest_id"], name: "index_participate_relationships_on_user_id_and_contest_id", unique: true
   add_index "participate_relationships", ["user_id"], name: "index_participate_relationships_on_user_id"
+
+  create_table "problems", force: true do |t|
+    t.string   "title"
+    t.string   "link"
+    t.string   "submit_link"
+    t.text     "statement"
+    t.text     "notes"
+    t.text     "solution"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "problems", ["title"], name: "index_problems_on_title"
 
   create_table "read_relationships", force: true do |t|
     t.integer  "user_id"

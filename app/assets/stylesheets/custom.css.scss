@@ -365,6 +365,36 @@ input {
 }
 
 
+/* Problem */
+
+#problem-sidebar {
+  float: left;
+  width: 185px;
+  margin-top: 85px;
+  margin-left: 15px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  border-left: 1px solid black;
+
+  h4 {
+    margin-top: 5px;
+  }
+
+  p.button-style {
+    margin: 0 auto;
+    width: 130px;
+    text-align: center;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+  }
+}
+
+#problem-statement {
+  width: 800px;
+  float: left;
+}
+
+
 /* form styles */
 
 #participate-form {

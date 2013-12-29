@@ -1,0 +1,24 @@
+<% provide(:title, 'Lista de Problemas') %>
+<h1>Lista de Problemas</h1>
+
+
+<div id="index-articles">
+  <ul>
+    <% @problems.each do |problem| %>
+      <li>
+        <%= link_to problem.title, problem %>
+        <% if signed_in? and current_user.admin? %>
+          , <%= link_to "Editar Problema", edit_problem_path(problem) %>
+          , <%= link_to "Apagar Problema", problem, method: :delete, data: { confirm: "Tem a certeza que quer eliminar o problema #{problem.title}?" } %>
+    <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+<% if signed_in? and current_user.admin? %>
+  <div>
+    <%= link_to "Novo Problema", new_problem_path %>
+  </div>
+<% end %>
+
+</div>
