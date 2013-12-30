@@ -15,7 +15,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order("name ASC").paginate(page: params[:page], per_page: 20)
+    @current_users = User.order("name ASC").paginate(page: params[:page], per_page: 20, :conditions => ["graduation_year >= ?", get_current_graduation_year()])
+    @past_users = User.order("name ASC").paginate(page: params[:page], per_page: 20, :conditions => ["graduation_year < ?", get_current_graduation_year()])
   end
 
   def create

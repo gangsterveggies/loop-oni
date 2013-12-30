@@ -2,15 +2,31 @@
 <h1>Todos os Concorrentes</h1>
 
 <div id="index-users">
-  <%= will_paginate %>
 
+  <h3>Concorrentes</h3>
+  <%= will_paginate @current_users %>
   <ul>
-    <% @users.each do |user| %>
+    <% @current_users.each do |user| %>
       <li class="user">
         <%= link_to user.name, user %>: <%= get_grade_from_year(user.graduation_year) %>º ano
       </li>
     <% end %>
   </ul>
 
-  <%= will_paginate %>
+  <%= will_paginate @current_users %>
+
+
+  <h3>Ex-Concorrentes</h3>
+  <%= will_paginate @past_users %>
+
+  <ul>
+    <% @past_users.each do |user| %>
+      <li class="user">
+        <%= link_to user.name, user %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= will_paginate @past_users %>
+
 </div>

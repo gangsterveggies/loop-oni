@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @signed_contests = @user.participate_contests.where("begin_date >= ?", DateTime.now)
+    @done_contests = @user.participate_contests.where("begin_date < ?", DateTime.now)
   end
 
   def new

@@ -1,16 +1,14 @@
 Next time:
+     - Forgot Password and Email Validation; /* URGENT */
+     - Add style and custom for articles (syntax highlight...); /* URGENT */
      - Work on User non-contestant;
      - Change error_messages helper;
      - Add search and problem tag;
-     - Change number input (grade/year) to dropdown;
      - Finish help file;
      - Add Codeforces/Topcoder/Social accounts;
      - Add animations/transitions;
-     - Add Contest order by years;
-     - Add User order by years;
      - Add more admin support for users (show email...);
      - Add contest rules;
-     - Add style and custom for articles (syntx highlight...);
      - Add pdf support (problems/articles);
      - Add solved problem status;
      - Add news (in home page);
@@ -18,7 +16,6 @@ Next time:
      - Allow image upload for articles and problems;
 
 Not-Done:
-     - Forgot Password and Email Validation;
      - More Language Support in forms;
 
 Done:
@@ -33,3 +30,6 @@ Done:
      - Guides article order;
      - Tag articles;
      - Create problems;
+     - Add Contest order by years;
+     - Add User order by years;
+     - Change number input (grade/year) to dropdown;
