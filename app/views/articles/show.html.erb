@@ -1,6 +1,6 @@
 <% provide(:title, @article.title) %>
 <h1><%= @article.title %></h1>
-<%= raw @article.content %>
+<%= raw (pre2plain(coderay(@article.content))) %>
 
 <div id="article-footer">
   <p>

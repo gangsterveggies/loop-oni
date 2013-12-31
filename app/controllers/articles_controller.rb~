@@ -3,9 +3,11 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    @guide_rel = GuideRelationship.new
-    @guide_rel.article_id = @article.id
-    @guide_list = Guide.find_but(@article)
+    if current_user.admin?
+      @guide_rel = GuideRelationship.new
+      @guide_rel.article_id = @article.id
+      @guide_list = Guide.find_but(@article)
+    end
   end
 
   def new
@@ -13,8 +15,16 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.search(params[:search], params[:page])
+    if params[:tag]
+      @articles = Article.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20)
+      @tag = params[:tag]
+    else
+      @articles = Article.search(params[:search], params[:page])
+      @tag = ""
+    end
   end
+
+
 
   def create
     @article = Article.new(article_params)
@@ -49,6 +59,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :content)
+      params.require(:article).permit(:title, :content, :tag_list)
     end
 end

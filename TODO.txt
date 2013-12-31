@@ -1,5 +1,4 @@
 Next time:
-     - Add style and custom for articles (syntax highlight...); /* URGENT */
      - Work on User non-contestant;
      - Change error_messages helper;
      - Add search and problem tag;
@@ -12,6 +11,7 @@ Next time:
      - Add solved problem status;
      - Correct validations on ALL models;
      - Allow image upload for articles and problems;
+     - Draft article setting;
 
 Not-Done:
      - More Language Support in forms;
@@ -33,3 +33,4 @@ Done:
      - Change number input (grade/year) to dropdown;
      - Forgot Password and Email Validation;
      - Add news (in home page);
+     - Add style and custom for articles (syntax highlight...);

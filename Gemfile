@@ -10,6 +10,8 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'acts_as_list'
 gem 'acts-as-taggable-on'
+gem 'coderay'
+gem 'RedCloth'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

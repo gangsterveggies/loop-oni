@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    if current_user.admin?
+    if signed_in? and current_user.admin?
       @guide_rel = GuideRelationship.new
       @guide_rel.article_id = @article.id
       @guide_list = Guide.find_but(@article)
@@ -23,8 +23,6 @@ class ArticlesController < ApplicationController
       @tag = ""
     end
   end
-
-
 
   def create
     @article = Article.new(article_params)
