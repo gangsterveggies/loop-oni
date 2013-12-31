@@ -1,10 +1,13 @@
 Loop::Application.routes.draw do
+  get "email_validations/edit"
+  get "email_validations/update"
   resources :users
   resources :articles
   resources :contests
   resources :guides
   resources :problems
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :email_validations, only: [:edit]
   resources :announcements, only: [:new, :create, :edit, :update, :index, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :read_relationships, only: [:create, :destroy]
@@ -16,14 +19,15 @@ Loop::Application.routes.draw do
   get 'categories/:tag',      to: 'articles#index', as: :tag
   get 'categories/',          to: 'tags#index'
   root  'cover_pages#home'
-  match '/password_resets/:id', to: 'password_resets#edit',            via: 'get', :as => 'make_password_reset'
-  match '/hide_announcement',   to: 'javascripts#hide_announcement',   via: 'get'
-  match '/signup',              to: 'users#new',                       via: 'get'
-  match '/signin',              to: 'sessions#new',                    via: 'get'
-  match '/signout',             to: 'sessions#destroy',                via: 'delete'
-  match '/admin',               to: 'admin#panel',                     via: 'get'
-  match '/gen_contest',         to: 'admin#gen_contest_tool',          via: 'get'
-  match '/help',                to: 'cover_pages#help',                via: 'get'
+  match '/password_resets/:id', to: 'password_resets#edit',          via: 'get', :as => 'make_password_reset'
+  match '/email_validation/:id',to: 'email_validations#edit',        via: 'get', :as => 'make_email_validation'
+  match '/hide_announcement',   to: 'javascripts#hide_announcement', via: 'get'
+  match '/signup',              to: 'users#new',                     via: 'get'
+  match '/signin',              to: 'sessions#new',                  via: 'get'
+  match '/signout',             to: 'sessions#destroy',              via: 'delete'
+  match '/admin',               to: 'admin#panel',                   via: 'get'
+  match '/gen_contest',         to: 'admin#gen_contest_tool',        via: 'get'
+  match '/help',                to: 'cover_pages#help',              via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

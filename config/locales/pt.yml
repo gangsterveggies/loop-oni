@@ -211,6 +211,8 @@ pt:
         grade: "Ano Escolar"
         school: "Escola"
         city: "Cidade"
+        password: "Password"
+        password_confirmation: "A Password"
   will_paginate:
     next_label: próximo →
     page_entries_info:

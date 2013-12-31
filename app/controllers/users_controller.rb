@@ -15,16 +15,16 @@ class UsersController < ApplicationController
   end
 
   def index
-    @current_users = User.order("name ASC").paginate(page: params[:page], per_page: 20, :conditions => ["graduation_year >= ?", get_current_graduation_year()])
-    @past_users = User.order("name ASC").paginate(page: params[:page], per_page: 20, :conditions => ["graduation_year < ?", get_current_graduation_year()])
+    @current_users = User.order("name ASC").paginate(page: params[:page], per_page: 20, :conditions => ["email_validated_at < ? AND graduation_year >= ?", DateTime.now(), get_current_graduation_year()])
+    @past_users = User.order("name ASC").paginate(page: params[:page], per_page: 20, :conditions => ["email_validated_at < ? AND graduation_year < ?", DateTime.now(), get_current_graduation_year()])
   end
 
   def create
     @user = User.new(user_params)
     @user.updating_password = true
     if @user.save
-      sign_in @user
-      flash[:success] = "Registado com sucesso!"
+      @user.send_email_validation
+      flash[:success] = "Registado com sucesso! Um email foi enviado para validar o e-mail introduzido."
       redirect_to root_path
     else
       render 'new'

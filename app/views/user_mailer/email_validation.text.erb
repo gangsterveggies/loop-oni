@@ -1,0 +1,12 @@
+Olá <%= @user.name %>!
+
+Obrigado por te inscreveres na plataforma de treino Português para olimpíadas de Informática: O Loop!
+
+Para começares a ver os conteúdos e a usar a plataforma valida primeiro o teu e-mail através do link seguinte:
+
+<%= make_email_validation_url(@user.email_validation_token) %>
+
+Bom trabalho e aproveita o Loop!
+
+Cumprimentos,
+A equipa do Loop
