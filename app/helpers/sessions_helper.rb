@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module SessionsHelper
   def sign_in(user)
     remember_token = User.new_remember_token
@@ -27,6 +28,12 @@ module SessionsHelper
     unless signed_in?
       store_location
       redirect_to signin_url, notice: "Tem de estar logado para continuar..."
+    end
+  end
+
+  def not_signed_in_user
+    if signed_in?
+      redirect_to root_path, notice: "Já está logado..."
     end
   end
 

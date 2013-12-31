@@ -4,6 +4,7 @@ Loop::Application.routes.draw do
   resources :contests
   resources :guides
   resources :problems
+  resources :password_resets, only: [:new, :create, :edit, :update]
   resources :announcements, only: [:new, :create, :edit, :update, :index, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :read_relationships, only: [:create, :destroy]
@@ -12,9 +13,10 @@ Loop::Application.routes.draw do
   resources :guide_relationships do
     collection { post :sort }
   end
-  get 'categories/:tag', to: 'articles#index', as: :tag
-  get 'categories/',     to: 'tags#index'
+  get 'categories/:tag',      to: 'articles#index', as: :tag
+  get 'categories/',          to: 'tags#index'
   root  'cover_pages#home'
+  match '/password_resets/:id', to: 'password_resets#edit',            via: 'get', :as => 'make_password_reset'
   match '/hide_announcement',   to: 'javascripts#hide_announcement',   via: 'get'
   match '/signup',              to: 'users#new',                       via: 'get'
   match '/signin',              to: 'sessions#new',                    via: 'get'

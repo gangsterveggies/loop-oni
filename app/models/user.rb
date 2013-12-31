@@ -61,6 +61,13 @@ class User < ActiveRecord::Base
     updating_stats
   end
 
+  def send_password_reset
+    self.password_reset_token = User.new_remember_token
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UserMailer.password_reset(self).deliver
+  end
+
   private
     def setup_user
       self.email = email.downcase

@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.updating_password = true
     if @user.save
       sign_in @user
       flash[:success] = "Registado com sucesso!"
