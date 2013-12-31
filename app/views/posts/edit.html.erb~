@@ -1,0 +1,38 @@
+<% provide(:title, 'Editar Concurso') %>
+<h1>Editar Concurso</h1>
+<h3 class="tag-line"><%= @contest.title %></h3>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@contest) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :title, "Título" %>
+      <%= f.text_field :title %>
+
+      <%= f.label :topic, "Tópico" %>
+      <%= f.text_field :topic %>
+
+      <%= f.label :link, "Link" %>
+      <%= f.text_field :link %>
+
+      <%= f.label :link, "Duração" %>
+      <%= f.select :duration, (1..10).to_a %>
+
+      <%= f.label :begin_date, "Data de Início" %>
+      <div class="date-select">
+        <%= f.datetime_select :begin_date, default: Time.now %>
+      </div>
+
+      <%= f.label :begin_date, "Data de Fim" %>
+      <div class="date-select">
+        <%= f.datetime_select :end_date, default: Time.now %>
+      </div>
+
+      <%= f.label :description, "Notas do Concurso" %>
+      <%= f.text_area :description , :rows => 20 %>
+
+      <%= f.submit "Guardar Modificações", class: "button-style" %>
+    <% end %>
+  </div>
+</div>

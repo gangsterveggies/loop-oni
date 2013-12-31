@@ -1,7 +1,7 @@
 class ContestsController < ApplicationController
   require 'will_paginate/array'
 
-  before_action :admin_user, only: [:edit, :update, :create, :destroy]
+  before_action :admin_user, only: [:new, :edit, :update, :create, :destroy]
 
   def show
     @contest = Contest.find(params[:id])

@@ -1,4 +1,6 @@
 class ContestsController < ApplicationController
+  require 'will_paginate/array'
+
   before_action :admin_user, only: [:edit, :update, :create, :destroy]
 
   def show
@@ -10,7 +12,20 @@ class ContestsController < ApplicationController
   end
 
   def index
-    @contests = Contest.paginate(page: params[:page], per_page: 20)
+    @future_contests = Contest.paginate(page: params[:page], per_page: 20, :conditions => ["end_date > ?", DateTime.now()])
+
+    @past_contests = []
+    ini_year = 2012
+    while (true)
+      @cur = Contest.order("begin_date ASC").paginate(page: params[:page], per_page: 20, :conditions => ["end_date < ? AND end_date > ?", [Date.new(ini_year + 1, 9, 1), DateTime.now()].min, Date.new(ini_year, 9, 1)])
+      if @cur.empty?
+        break
+      else
+        @past_contests.push({:year => ini_year, :contests => @cur})
+      end
+      ini_year += 1
+    end
+    @past_contests = @past_contests.paginate(page: params[:page], per_page: 20)
   end
 
   def create

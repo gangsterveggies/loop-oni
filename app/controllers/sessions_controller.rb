@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      if user.email_validated_at < DateTime.now()
+      if user.email_validated_at > DateTime.now()
         flash.now[:alert] = 'Só é possível logar-se depois de validar o E-mail.'
         render 'new'
       else

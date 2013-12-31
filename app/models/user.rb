@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :posts, dependent: :destroy
   has_many :read_relationships, foreign_key: "user_id", dependent: :destroy
   has_many :read_articles, through: :read_relationships, source: :article
   attr_accessor :grade, :updating_password, :updating_stats

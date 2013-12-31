@@ -1,5 +1,4 @@
 Next time:
-     - Forgot Password and Email Validation; /* URGENT */
      - Add style and custom for articles (syntax highlight...); /* URGENT */
      - Work on User non-contestant;
      - Change error_messages helper;
@@ -11,7 +10,6 @@ Next time:
      - Add contest rules;
      - Add pdf support (problems/articles);
      - Add solved problem status;
-     - Add news (in home page);
      - Correct validations on ALL models;
      - Allow image upload for articles and problems;
 
@@ -33,3 +31,5 @@ Done:
      - Add Contest order by years;
      - Add User order by years;
      - Change number input (grade/year) to dropdown;
+     - Forgot Password and Email Validation;
+     - Add news (in home page);

@@ -492,6 +492,60 @@ input {
   }
 }
 
+
+/* Post */
+
+#home-box {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.post-box {
+  width: 800px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  border-top-left-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+  background-color: $ONIYellow;
+
+  &:last-child {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .post-title {
+    line-height: 1.45em;
+    font-size: 1.45em;
+    font-weight: bold;
+    padding-left: 20px;
+    border-bottom: 1px solid $ONIYellowDark;
+  }
+
+  .post-body {
+    padding: 10px;
+    background: white;
+    border-left: 1px solid $ONIYellowDark;
+    border-right: 1px solid $ONIYellowDark;
+  }
+
+  .post-footer {
+    font-size: 0.80em;
+    text-align: right;
+    line-height: 0.80em;
+    padding-right: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-top: 1px solid $ONIYellowDark;
+  }
+}
+
+
 /* footer */
 
 footer {

@@ -1,0 +1,19 @@
+<% provide(:title, 'Editar Post') %>
+<h1>Editar Post</h1>
+<h3 class="tag-line"><%= @post.title %></h3>
+
+<div class="row">
+  <div class="span8 offset2">
+    <%= form_for(@post) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :title, "Título" %>
+      <%= f.text_field :title %>
+
+      <%= f.label :content, "Post (em HTML)" %>
+      <%= f.text_area :content , :rows => 20, :placeholder => "Escreva aqui o artigo" %>
+
+      <%= f.submit "Guardar Modificações", class: "button-style" %>
+    <% end %>
+  </div>
+</div>

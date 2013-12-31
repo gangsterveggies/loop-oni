@@ -6,6 +6,7 @@ Loop::Application.routes.draw do
   resources :contests
   resources :guides
   resources :problems
+  resources :posts, only: [:new, :edit, :update, :create, :show, :destroy]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :email_validations, only: [:edit]
   resources :announcements, only: [:new, :create, :edit, :update, :index, :destroy]

@@ -68,6 +68,13 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver
   end
 
+  def send_email_validation
+    self.email_validation_token = User.new_remember_token
+    self.email_validated_at = DateTime.now() + 100.years
+    save!
+    UserMailer.email_validation(self).deliver
+  end
+
   private
     def setup_user
       self.email = email.downcase
