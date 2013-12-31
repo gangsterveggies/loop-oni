@@ -32,6 +32,6 @@ class Guide < ActiveRecord::Base
   end
 
   def self.find_but(article)
-    all(:conditions => ["id NOT IN (?)", article.guide_ids.join(', ')])
+    all(:conditions => ["id NOT IN (?)", "0" + article.guide_ids.join(', ')])
   end
 end

@@ -2,10 +2,18 @@ class Guide < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
 
   has_many :guide_relationships, foreign_key: "guide_id", dependent: :destroy
-  has_many :articles, :through => :guide_relationships, source: :article
+  has_many :articles, -> { order("guide_relationships.position desc") }, :through => :guide_relationships, source: :article
   default_scope -> { order('title ASC') }
   validates :title, presence: true
   validates :description, presence: true
+
+  def self.search(search, page)
+    if search
+      order("title ASC").paginate(page: page, per_page: 20, :conditions => ['title LIKE ?', "%#{search}%"])
+    else
+      order("title ASC").paginate(page: page, per_page: 20)
+    end
+  end
 
   def truncate_title
     truncate(title, :length => 24)
