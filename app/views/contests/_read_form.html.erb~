@@ -1,7 +1,0 @@
-<div id="read-form">
-  <% if current_user.read?(@article) %>
-    <%= render 'unread' %>
-  <% else %>
-    <%= render 'read' %>
-  <% end %>
-</div>

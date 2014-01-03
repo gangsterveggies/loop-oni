@@ -1,4 +1,0 @@
-class AddAnnouncementDateIndex < ActiveRecord::Migration
-  def change
-  end
-end

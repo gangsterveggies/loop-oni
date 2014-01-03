@@ -1,4 +1,0 @@
-class AddContestDescription < ActiveRecord::Migration
-  def change
-  end
-end

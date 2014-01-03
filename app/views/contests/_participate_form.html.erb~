@@ -1,7 +1,0 @@
-<div id="read-form">
-  <% if current_user.participate?(@contest) %>
-    <%= render 'unparticipate' %>
-  <% else %>
-    <%= render participate' %>
-  <% end %>
-</div>

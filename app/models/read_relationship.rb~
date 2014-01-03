@@ -1,2 +1,0 @@
-class ReadRelationship < ActiveRecord::Base
-end

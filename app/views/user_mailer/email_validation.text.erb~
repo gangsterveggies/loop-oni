@@ -1,3 +1,0 @@
-UserMailer#email_validation
-
-<%= @greeting %>, find me in app/views/app/views/user_mailer/email_validation.text.erb

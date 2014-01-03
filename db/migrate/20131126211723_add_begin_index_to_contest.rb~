@@ -1,4 +1,0 @@
-class AddBeginIndexToContest < ActiveRecord::Migration
-  def change
-  end
-end

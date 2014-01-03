@@ -1,4 +1,0 @@
-class CorrectUserAnnouncementHideTime < ActiveRecord::Migration
-  def change
-  end
-end

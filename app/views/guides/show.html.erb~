@@ -1,6 +1,0 @@
-<% provide(:title, @article.title) %>
-<% if signed_in? %>
-  <%= render 'read_form' %>
-<% end %>
-<h1><%= @article.title %></h1>
-<%= raw @article.content %>
