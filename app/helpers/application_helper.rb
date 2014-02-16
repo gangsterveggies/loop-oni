@@ -21,6 +21,6 @@ module ApplicationHelper
   end
 
   def pre2plain(text)
-    text.gsub(/\<pre\>/m, '<div class="pre-plain">')
+    text.gsub(/\<pre\>/m, '<div class="pre-plain">').gsub("\</pre\>", "\</div\>")
   end
 end
