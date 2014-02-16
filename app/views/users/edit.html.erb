@@ -9,9 +9,6 @@
       <%= f.label :name, "Nome" %>
       <%= f.text_field :name %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
       <%= f.label :grade, "Ano Escolar (se não andar na escola escolher 0)" %>
       <%= f.select :grade, options_for_select((0..12)) %>
 
@@ -22,6 +19,10 @@
       <%= f.text_field :school %>
 
       <% if current_user.admin? %>
+
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+
         <%= f.label :qualifications, "Qualificações" %>
         <%= f.number_field :qualifications %>
 

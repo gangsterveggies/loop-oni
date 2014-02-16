@@ -73,7 +73,7 @@ class UsersController < ApplicationController
       end
     else
       if !current_user.admin?
-        if params[:user][:qualifications] or params[:user][:finals] or params[:user][:iois] or params[:user][:wins] or params[:user][:bronze] or params[:user][:silver] or params[:user][:gold]
+        if params[:user][:qualifications] or params[:user][:finals] or params[:user][:iois] or params[:user][:wins] or params[:user][:bronze] or params[:user][:silver] or params[:user][:gold] or params[:user][:email]
           flash[:error] = "Não tem permissões para alterar alguns dos parametros"
           redirect_to @user and return
         end

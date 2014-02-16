@@ -21,6 +21,12 @@
           <td><b>Escola:</b></td>
           <td><%= @user.school %></td>
         </tr>
+        <% if signed_in? and current_user.admin? %>
+          <tr>
+            <td><b>Email:</b></td>
+            <td><%= @user.email %></td>
+          </tr>
+        <% end %>
       </table>
     <% end %>
     <% if signed_in? and (current_user?(@user) or current_user.admin?) %>
