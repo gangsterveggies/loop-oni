@@ -15,9 +15,9 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    if params[:tag]
-      @articles = Article.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20)
-      @tag = params[:tag]
+    if params[:article_tag]
+      @articles = Article.tagged_with(params[:article_tag]).paginate(page: params[:page], per_page: 20)
+      @tag = params[:article_tag]
     else
       @articles = Article.search(params[:search], params[:page])
       @tag = ""
@@ -57,6 +57,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :content, :tag_list)
+      params.require(:article).permit(:title, :content, :article_tag_list)
     end
 end

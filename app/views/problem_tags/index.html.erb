@@ -1,0 +1,12 @@
+<% provide(:title, 'Lista de Tipos de Problemas') %>
+<h1>Lista de Tipos de Problemas</h1>
+
+<h3>Nuvem de Lista de Tipos de Problemas:</h3>
+
+<div id="tag_cloud">
+  <% tag_cloud Problem.problem_tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, problem_tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+<p>Ver todos os problemas <%= link_to "aqui", problems_path %></p>

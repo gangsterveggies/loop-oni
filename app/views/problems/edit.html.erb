@@ -12,6 +12,9 @@
       <%= f.label :statement, "Enunciado" %>
       <%= f.text_area :statement , :rows => 20, placeholder: "Escreva aqui o enunciado do problema..." %>
 
+      <%= f.label :problem_tag_list, "Tipos (separados por vírgulas)" %>
+      <%= f.text_field :problem_tag_list %>
+
       <%= f.label :link, "Link" %>
       <%= f.text_field :link %>
 

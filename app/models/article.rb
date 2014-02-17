@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
   has_many :users_read, through: :read_relationships, source: :user
   validates :title, presence: true
   validates :content, presence: true
-  acts_as_taggable
+  acts_as_taggable_on :article_tag
 
   def self.search(search, page)
     if search

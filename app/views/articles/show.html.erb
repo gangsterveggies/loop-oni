@@ -7,8 +7,8 @@
     <% if signed_in? and current_user.admin? %>
       <%= link_to "Editar", edit_article_path(@article) %> | 
     <% end %>
-    <% if @article.tag_list.count > 0 %>
-      <span class="icon icon-tag"></span> <b>Categorias:</b> <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+    <% if @article.article_tag_list.count > 0 %>
+      <span class="icon icon-tag"></span> <b>Categorias:</b> <%= raw @article.article_tag_list.map { |t| link_to t, article_tag_path(t) }.join(', ') %>
     <% end %>
   </p>
 </div>

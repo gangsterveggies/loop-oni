@@ -36,3 +36,8 @@
   </div>
 <% end %>
 
+<% if @solution %>
+  <% if @problem.problem_tag_list.count > 0 %>
+    <span class="icon icon-folder-open"></span> <b>Tipos:</b> <%= raw @problem.problem_tag_list.map { |t| link_to t, problem_tag_path(t) }.join(', ') %>
+  <% end %>
+<% end %>

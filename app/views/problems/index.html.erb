@@ -1,6 +1,16 @@
 <% provide(:title, 'Lista de Problemas') %>
 <h1>Lista de Problemas</h1>
 
+<% unless @tag.empty? %>
+  <h3 class="tag-line">Tipo de Problema: <%= @tag %></h3>
+<% end %>
+
+<div id="search-box">
+  <%= form_tag problems_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] , placeholder: "Procurar Problema..." %>
+    <%= submit_tag "Procurar", :name => nil , class: "button-style"%>
+  <% end %>
+</div>
 
 <div id="index-articles">
   <ul>
@@ -14,6 +24,8 @@
       </li>
     <% end %>
   </ul>
+
+<p><%= link_to "Lista de Tipos de Problemas", problem_types_path %></p>
 
 <% if signed_in? and current_user.admin? %>
   <div>

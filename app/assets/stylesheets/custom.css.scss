@@ -368,10 +368,12 @@ input {
 /* Problem */
 
 #problem-sidebar {
-  float: left;
+  position:fixed;
+//  float: left;
   width: 185px;
   margin-top: 85px;
-  margin-left: 15px;
+//  margin-left: 15px;
+  margin-left: 815px;
   padding-left: 10px;
   padding-bottom: 10px;
   border-left: 1px solid black;
@@ -394,6 +396,9 @@ input {
   float: left;
 }
 
+#problem-footer {
+  margin-bottom: 40px;
+}
 
 /* form styles */
 

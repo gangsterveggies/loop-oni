@@ -13,7 +13,13 @@ class ProblemsController < ApplicationController
   end
 
   def index
-    @problems = Problem.all
+    if params[:problem_tag]
+      @problems = Problem.tagged_with(params[:problem_tag]).paginate(page: params[:page], per_page: 20)
+      @tag = params[:problem_tag]
+    else
+      @problems = Problem.search(params[:search], params[:page])
+      @tag = ""
+    end
   end
 
   def create
@@ -49,6 +55,6 @@ class ProblemsController < ApplicationController
 
   private
     def problem_params
-      params.require(:problem).permit(:title, :link, :submit_link, :statement, :notes, :solution)
+      params.require(:problem).permit(:title, :link, :submit_link, :statement, :notes, :solution, :problem_tag_list)
     end
 end
