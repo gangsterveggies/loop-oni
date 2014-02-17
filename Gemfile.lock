@@ -175,6 +175,7 @@ DEPENDENCIES
   coffee-rails (= 4.0.1)
   jbuilder (= 1.0.2)
   jquery-rails (~> 2.3.0)
+  nokogiri
   pg (= 0.15.1)
   rails (= 4.0.1)
   rails_12factor (= 0.0.2)
