@@ -10,7 +10,8 @@
       <%= f.text_field :name %>
 
       <%= f.label :grade, "Ano Escolar (se não andar na escola escolher 0)" %>
-      <%= f.select :grade, options_for_select((0..12)) %>
+
+      <%= f.select :grade, options_for_select((0..12), @user.grade) %>
 
       <%= f.label :city, "Cidade" %>
       <%= f.text_field :city %>
