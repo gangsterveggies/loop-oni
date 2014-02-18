@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @signed_contests = @user.participate_contests.where("begin_date >= ?", DateTime.now)
     @done_contests = @user.participate_contests.where("begin_date < ?", DateTime.now)
+    @any_social = (!(@user.topcoder.nil? or @user.topcoder.empty?)) || (!(@user.codeforces.nil? or @user.codeforces.empty?)) || (!(@user.blog.nil? or @user.blog.empty?));
   end
 
   def new
@@ -89,6 +90,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :grade, :school, :city, :profile_image, :password, :password_confirmation, :qualifications, :finals, :iois, :wins, :bronze, :silver, :gold)
+      params.require(:user).permit(:name, :email, :grade, :school, :city, :profile_image, :password, :password_confirmation, :qualifications, :finals, :iois, :wins, :bronze, :silver, :gold, :blog, :codeforces, :topcoder)
     end
 end

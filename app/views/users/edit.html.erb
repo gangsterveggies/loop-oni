@@ -19,6 +19,15 @@
       <%= f.label :school, "Escola" %>
       <%= f.text_field :school %>
 
+      <%= f.label :blog, "Blog ou Página Pessoal(deixe em branco se não tiver)" %>
+      <%= f.text_field :blog %>
+
+      <%= f.label :codeforces, "Handle do CodeForces(deixe em branco se não tiver)" %>
+      <%= f.text_field :codeforces %>
+
+      <%= f.label :topcoder, "Número do TopCoder(deixe em branco se não tiver)" %>
+      <%= f.text_field :topcoder %>
+
       <% if current_user.admin? %>
 
         <%= f.label :email %>

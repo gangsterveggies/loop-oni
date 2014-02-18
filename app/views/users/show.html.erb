@@ -37,6 +37,25 @@
       <% end %>
     <% end %>
   </div>
+
+  <div style="clear:both"></div>
+
+  <% if @any_social %>
+    <div id="profile-social">
+      <p><strong>Outras Contas:</strong>
+        <% if !(@user.blog.nil? or @user.blog.empty?) %>
+          <%= link_to image_tag("blog.png", alt: "Blog/Página Pessoal"), @user.blog, target:"_blank" %>
+        <% end %>
+        <% if !(@user.codeforces.nil? or @user.codeforces.empty?) %>
+          <%= link_to image_tag("codeforces.png", alt: "CodeForces"), "http://codeforces.com/profile/#{@user.codeforces}", target:"_blank" %>
+        <% end %>
+        <% if !(@user.topcoder.nil? or @user.topcoder.empty?) %>
+          <%= link_to image_tag("topcoder.png", alt: "TopCoder"), "http://community.topcoder.com/tc?module=MemberProfile&cr=#{@user.topcoder}", target:"_blank" %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+
   <div id="profile-oni">
     <table>
       <tr>
@@ -65,20 +84,28 @@
   <div id="profile-stats">
     <h3>Estatísticas do Loop</h3>
     <% if @user.participate_contests.count == 0 %>
-      <p>Sem participações...</p>
+      <p class="profile-stats-text">Sem participações...</p>
     <% else %>
-      <p>Concursos Inscritos:</p>
-      <ul>
-        <% @signed_contests.each do |contest| %>
-          <li><%= link_to contest.title, contest %></li>
-        <% end %>
-      </ul>
-      <p>Concursos Acabados:</p>
-      <ul>
-        <% @done_contests.each do |contest| %>
-          <li><%= link_to contest.title, contest %></li>
-        <% end %>
-      </ul>
+      <p><strong>Concursos Inscritos:</strong></p>
+      <% if @signed_contests.count == 0 %>
+        <p class="profile-stats-text">Sem participações...</p>        
+      <% else %>
+        <ul>
+          <% @signed_contests.each do |contest| %>
+            <li><%= link_to contest.title, contest %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <p><strong>Concursos Acabados:</strong></p>
+      <% if @done_contests.count == 0 %>
+        <p class="profile-stats-text">Sem participações...</p>        
+      <% else %>
+        <ul>
+          <% @done_contests.each do |contest| %>
+            <li><%= link_to contest.title, contest %></li>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %>
   </div>
 </div>

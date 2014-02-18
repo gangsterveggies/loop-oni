@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131231023616) do
+ActiveRecord::Schema.define(version: 20140218011626) do
 
   create_table "announcements", force: true do |t|
     t.text     "message"
@@ -153,6 +153,9 @@ ActiveRecord::Schema.define(version: 20131231023616) do
     t.datetime "password_reset_sent_at"
     t.string   "email_validation_token"
     t.datetime "email_validated_at"
+    t.string   "codeforces"
+    t.string   "topcoder"
+    t.string   "blog"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

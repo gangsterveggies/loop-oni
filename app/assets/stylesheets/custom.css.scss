@@ -275,6 +275,16 @@ input {
     }
   }
 
+  #profile-social {
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: px;
+
+    img:hover {
+      background: #DCDCDC;
+    }
+  }
+
   #profile-oni {
     clear: both;
     padding-top: 30px;
@@ -324,6 +334,10 @@ input {
 
   #profile-stats {
     margin-top: 20px;
+
+    .profile-stats-text {
+      margin-left: 30px;
+    }
   }
 }
 
