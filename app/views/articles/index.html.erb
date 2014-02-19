@@ -18,6 +18,9 @@
   <ul>
     <% @articles.each do |article| %>
       <li class="article">
+        <% if article.draft %>
+          <span class="icon icon-eye-close"></span>
+        <% end %>
         <%= link_to article.title, article %>
         <% if signed_in? and current_user.admin? %>
           , <%= link_to "Editar Artigo", edit_article_path(article) %>

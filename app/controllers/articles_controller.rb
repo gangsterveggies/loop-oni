@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :admin_user, only: [:edit, :update, :create, :destroy]
+  before_action :admin_user, only: [:new, :edit, :update, :create, :destroy]
 
   def show
     @article = Article.find(params[:id])
@@ -19,7 +19,11 @@ class ArticlesController < ApplicationController
       @articles = Article.tagged_with(params[:article_tag]).paginate(page: params[:page], per_page: 20)
       @tag = params[:article_tag]
     else
-      @articles = Article.search(params[:search], params[:page])
+      if signed_in? and current_user.admin?
+        @articles = Article.search(params[:search], params[:page])
+      else
+        @articles = Article.search(params[:search], params[:page]).where(draft: false)
+      end
       @tag = ""
     end
   end
@@ -57,6 +61,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :content, :article_tag_list)
+      params.require(:article).permit(:title, :content, :draft, :article_tag_list)
     end
 end

@@ -12,6 +12,9 @@
       <%= f.label :article_tag_list, "Categorias (separadas por vírgulas)" %>
       <%= f.text_field :article_tag_list %>
 
+      <%= f.label :draft, "Rascunho" %>
+      <%= f.check_box :draft %>
+
       <%= f.label :content, "Artigo:" %>
       <%= f.text_area :content , :rows => 20, placeholder: "Escreva aqui o artigo..." %>
 

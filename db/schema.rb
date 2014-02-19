@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218011626) do
+ActiveRecord::Schema.define(version: 20140218235609) do
 
   create_table "announcements", force: true do |t|
     t.text     "message"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140218011626) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "draft"
   end
 
   add_index "articles", ["title"], name: "index_articles_on_title"
