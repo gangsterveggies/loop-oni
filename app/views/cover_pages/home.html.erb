@@ -4,10 +4,10 @@
       <%= link_to @fixed_post.title, @fixed_post %>
     </div>
     <div class="post-body">
-      <%= raw html_truncate(@fixed_post.content, 50, "uwkSm2A638nLcamhz4tBug").gsub("uwkSm2A638nLcamhz4tBug", "... " + link_to("(Continuar a ler)")) %>
+      <%= raw html_truncate(@fixed_post.content, 50, "uwkSm2A638nLcamhz4tBug").gsub("uwkSm2A638nLcamhz4tBug", "... " + link_to("(Continuar a ler)", @fixed_post)) %>
     </div>
     <div class="post-footer">
-      <span class="icon icon-pencil"></span> <b>Escrito por:</b> <%= link_to @fixed_post.user.name, @fixed_post.user %>.
+      <span class="icon icon-pencil"></span> <b>Escrito por:</b> <%= link_to (namify @fixed_post.user.name), @fixed_post.user %>.
       <% if signed_in? and current_user.admin? %>
         | <%= link_to "Editar", edit_post_path(@fixed_post) %>
       <% end %>
@@ -20,14 +20,16 @@
         <%= link_to post.title, post %>
       </div>
       <div class="post-body">
-        <%= raw post.content %>
+        <%= raw html_truncate(post.content, 50, "uwkSm2A638nLcamhz4tBug").gsub("uwkSm2A638nLcamhz4tBug", "... " + link_to("(Continuar a ler)", post)) %>
       </div>
       <div class="post-footer">
-        <span class="icon icon-pencil"></span> <b>Escrito por:</b> <%= link_to post.user.name, post.user %> há <%= time_ago_in_words(post.created_at) %>.
+        <span class="icon icon-pencil"></span> <b>Escrito por:</b> <%= link_to (namify post.user.name), post.user %> há <%= time_ago_in_words(post.created_at) %>.
         <% if signed_in? and current_user.admin? %>
           | <%= link_to "Editar", edit_post_path(post) %>
         <% end %>
       </div>
     </div>
   <% end %>
+
+  <%= will_paginate @posts %>
 </div>

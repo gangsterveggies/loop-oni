@@ -11,4 +11,13 @@ module UsersHelper
       @cur.year
     end
   end
+
+  def namify (name)
+    names = name.split(/\W+/)
+    if names.length > 1
+      names.first + " " + names.last
+    else
+      names.first
+    end
+  end
 end

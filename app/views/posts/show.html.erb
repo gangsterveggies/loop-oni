@@ -5,7 +5,7 @@
 
 <div id="article-footer">
   <p>
-    <span class="icon icon-pencil"></span> <b>Escrito por:</b> <%= link_to @post.user.name, @post.user %> há <%= time_ago_in_words(@post.created_at) %>.
+    <span class="icon icon-pencil"></span> <b>Escrito por:</b> <%= link_to (namify @post.user.name), @post.user %> há <%= time_ago_in_words(@post.created_at) %>.
     <% if signed_in? and current_user.admin? %>
       | <%= link_to "Editar", edit_post_path(@post) %>
     <% end %>

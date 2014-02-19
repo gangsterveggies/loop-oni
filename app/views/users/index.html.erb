@@ -8,7 +8,7 @@
   <ul>
     <% @current_users.each do |user| %>
       <li class="user">
-        <%= link_to user.name, user %>: <%= get_grade_from_year(user.graduation_year) %>º ano
+        <%= link_to (namify user.name), user %>: <%= get_grade_from_year(user.graduation_year) %>º ano
       </li>
     <% end %>
   </ul>
@@ -22,7 +22,7 @@
   <ul>
     <% @past_users.each do |user| %>
       <li class="user">
-        <%= link_to user.name, user %>
+        <%= link_to (namify user.name), user %>
       </li>
     <% end %>
   </ul>
