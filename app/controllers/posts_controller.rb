@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   def destroy
     Post.find(params[:id]).destroy
     flash[:success] = "Post Apagado!"
-    redirect_to posts_path
+    redirect_to root_path
   end
 
   def edit
