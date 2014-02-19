@@ -17,7 +17,12 @@
 
   <ul>
     <% @articles.each do |article| %>
-      <li class="article">
+      <% if signed_in? and current_user.read?(article) %>
+        <li class="article article-read">
+          <span class="icon icon-ok"></span>
+      <% else %>
+        <li class="article">
+      <% end %>
         <% if article.draft %>
           <span class="icon icon-eye-close"></span>
         <% end %>

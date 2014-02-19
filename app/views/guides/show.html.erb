@@ -16,7 +16,12 @@
 <% else %>
   <ul>
     <% @guide_articles.each do |article| %>
-      <li>
+      <% if signed_in? and current_user.read?(article) %>
+        <li class="article article-read">
+          <span class="icon icon-ok"></span>
+      <% else %>
+        <li class="article">
+      <% end %>
         <%= link_to article.title, article %>
       </li>
     <% end %>

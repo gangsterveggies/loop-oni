@@ -432,16 +432,6 @@ input {
   }
 }
 
-#article-footer {
-  margin-top: 40px;
-  margin-bottom: 15px;
-  padding-left: 10px;
-
-  p {
-    font-size: 0.81em;
-  }
-}
-
 #tag_cloud {
   margin-top: 10px;
   margin-bottom: 40px;
@@ -457,6 +447,22 @@ input {
   .l { font-size: 1.8em; }
 }
 
+.handle {
+  cursor: move;
+}
+
+/* Articles */
+
+#article-footer {
+  margin-top: 40px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+
+  p {
+    font-size: 0.81em;
+  }
+}
+
 #article-form {
   height: 70px;
   border-top: 1px solid #808080;
@@ -467,7 +473,7 @@ input {
     float: left;
     margin-left: 20px;
   }
-
+  
   #admin-form {
     height: 70px;
     line-height: 70px;
@@ -481,10 +487,9 @@ input {
   }
 }
 
-.handle {
-  cursor: move;
+.article-read a {
+  text-decoration: line-through;
 }
-
 
 /* search bar */
 
