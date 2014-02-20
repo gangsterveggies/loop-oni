@@ -13,7 +13,7 @@ module UsersHelper
   end
 
   def namify (name)
-    names = name.split(/\W+/)
+    names = name.split(" ")
     if names.length > 1
       names.first + " " + names.last
     else
