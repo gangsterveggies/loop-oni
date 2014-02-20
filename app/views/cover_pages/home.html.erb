@@ -1,20 +1,21 @@
-<div id="home-box">
-  <div class="post-box">
-    <div class="post-title">
-      <%= link_to @fixed_post.title, @fixed_post %>
+<div id="home-wrapper">
+  <div id="home-box">
+    <div class="post-box">
+      <div class="post-title">
+        <%= link_to @fixed_post.title, @fixed_post %>
+      </div>
+      <div class="post-body">
+        <%= raw html_truncate(@fixed_post.content, 50, "uwkSm2A638nLcamhz4tBug").gsub("uwkSm2A638nLcamhz4tBug", "... " + link_to("(Continuar a ler)", @fixed_post)) %>
+      </div>
+      <div class="post-footer">
+        <span class="icon icon-pencil"></span> <b>Escrito por:</b> <%= link_to (namify @fixed_post.user.name), @fixed_post.user %>.
+        <% if signed_in? and current_user.admin? %>
+          | <%= link_to "Editar", edit_post_path(@fixed_post) %>
+        <% end %>
+      </div>
     </div>
-    <div class="post-body">
-      <%= raw html_truncate(@fixed_post.content, 50, "uwkSm2A638nLcamhz4tBug").gsub("uwkSm2A638nLcamhz4tBug", "... " + link_to("(Continuar a ler)", @fixed_post)) %>
-    </div>
-    <div class="post-footer">
-      <span class="icon icon-pencil"></span> <b>Escrito por:</b> <%= link_to (namify @fixed_post.user.name), @fixed_post.user %>.
-      <% if signed_in? and current_user.admin? %>
-        | <%= link_to "Editar", edit_post_path(@fixed_post) %>
-      <% end %>
-    </div>
-  </div>
-  
-  <% @posts.each do |post| %>
+    
+    <% @posts.each do |post| %>
     <div class="post-box">
       <div class="post-title">
         <%= link_to post.title, post %>
@@ -29,7 +30,29 @@
         <% end %>
       </div>
     </div>
-  <% end %>
+    <% end %>
 
-  <%= will_paginate @posts %>
+    <%= will_paginate @posts %>
+  </div>
+</div>
+
+<div class="sidebox">
+  <span class="sidebox-title">Próximos Concursos</span>
+  <div class="sidebox-body">
+    <% if @contests.count == 0 %>
+      <strong>Sem concursos próximos...</strong>
+    <% else %>
+      <% @contests.each do |contest| %>
+        <div class="sidebox-wrapper">
+          <span class="sidebox-contest"><%= link_to contest.title, contest %></span>
+          <p><span class="sidebox-time"><%= l contest.begin_date.to_date, format: :long %></span></p>
+          <% if contest.begin_date.past? %>
+            <p><span class="sidebox-time">A decorrer...</span></p>
+          <% else %>
+            <p><span class="sidebox-time">Falta <%= distance_of_time_in_words_to_now(contest.begin_date) %></span></p>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

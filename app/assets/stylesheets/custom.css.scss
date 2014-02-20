@@ -390,7 +390,7 @@ input {
 /* Problem */
 
 #problem-sidebar {
-  position:fixed;
+  position: fixed;
 //  float: left;
   width: 185px;
   margin-top: 85px;
@@ -527,6 +527,11 @@ input {
 
 /* Post */
 
+#home-wrapper {
+  float: left;
+  width: 80%;
+}
+
 #home-box {
   width: 800px;
   margin: 0 auto;
@@ -534,8 +539,8 @@ input {
 
 .post-box {
   width: 800px;
-  margin-left: 20px;
-  margin-right: 20px;
+//  margin-left: 20px;
+//  margin-right: 20px;
   margin-top: 10px;
   margin-bottom: 50px;
   border-top-left-radius: 8px;
@@ -545,9 +550,6 @@ input {
   background-color: $ONIYellow;
 
   &:last-child {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 10px;
     margin-bottom: 5px;
   }
 
@@ -577,6 +579,54 @@ input {
   }
 }
 
+
+/* Sidebox */
+
+.sidebox {
+  float: left;
+  width: 170px;
+  margin-left: 2%;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-top-left-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+  background-color: $ONIYellow;
+  border: 1px solid $ONIYellowDark;
+
+  .sidebox-title {
+    margin-left: 10px;
+    font-weight: bold;
+  }
+
+  .sidebox-body {
+    text-align: center;
+    background: white;
+    padding-bottom: 5px;
+
+    .sidebox-wrapper {
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
+      border-bottom: 1px solid $ONIYellowDark;
+
+      &:last-child {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        border-bottom: none;
+      }
+
+      p {
+        margin-bottom: 0px;
+      }
+
+      .sidebox-time {
+        color: #9A9A9A;
+      }
+    }
+  }
+}
 
 /* footer */
 
