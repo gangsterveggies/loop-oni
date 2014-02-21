@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="span8 offset2">
-    <%= form_for(@article) do |f| %>
+    <%= form_for (@article), :html => { :multipart => true } do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :title, "Título" %>
@@ -15,7 +15,10 @@
       <%= f.label :draft, "Rascunho" %>
       <%= f.check_box :draft %>
 
-      <%= f.label :content, "Artigo:" %>
+      <%= f.label :attach, "PDF associado" %>
+      <%= f.file_field :attach %>
+
+      <%= f.label :content, "Artigo (em HTML)" %>
       <%= f.text_area :content , :rows => 20, placeholder: "Escreva aqui o artigo..." %>
 
       <%= f.submit "Guardar Modificações", class: "button-style" %>

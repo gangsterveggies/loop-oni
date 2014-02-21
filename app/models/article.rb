@@ -1,8 +1,14 @@
+# -*- coding: utf-8 -*-
 class Article < ActiveRecord::Base
   has_many :guide_relationships, foreign_key: "article_id", dependent: :destroy
   has_many :guides, -> { order("guide_relationships.position desc") }, :through => :guide_relationships, source: :guide
   has_many :read_relationships, foreign_key: "article_id", dependent: :destroy
   has_many :users_read, through: :read_relationships, source: :user
+  has_attached_file :attach
+  validates_attachment_content_type :attach,
+    :content_type => [ 'application/pdf' ],
+    :message => "Upload só de pdfs..."
+
   validates :title, presence: true
   validates :content, presence: true
   acts_as_taggable_on :article_tag

@@ -4,6 +4,9 @@
 
 <div id="article-footer">
   <p>
+    <% unless @article.attach_file_name.nil? %>
+      <%= link_to 'Ver versão pdf', @article.attach.url %> | 
+    <% end %>
     <% if signed_in? and current_user.admin? %>
       <%= link_to "Editar", edit_article_path(@article) %> | 
     <% end %>

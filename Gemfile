@@ -13,6 +13,7 @@ gem 'acts-as-taggable-on'
 gem 'coderay'
 gem 'RedCloth'
 gem 'nokogiri'
+gem "paperclip"
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

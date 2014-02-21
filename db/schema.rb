@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218235609) do
+ActiveRecord::Schema.define(version: 20140220234727) do
 
   create_table "announcements", force: true do |t|
     t.text     "message"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 20140218235609) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "draft"
+    t.string   "attach_file_name"
+    t.string   "attach_content_type"
+    t.integer  "attach_file_size"
+    t.datetime "attach_updated_at"
   end
 
   add_index "articles", ["title"], name: "index_articles_on_title"
