@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="span8 offset2">
-    <%= form_for(@article) do |f| %>
+    <%= form_for (@article), :html => { :multipart => true } do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :title, "Título" %>
