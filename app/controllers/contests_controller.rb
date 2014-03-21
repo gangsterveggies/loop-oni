@@ -9,6 +9,8 @@ class ContestsController < ApplicationController
 
   def new
     @contest = Contest.new
+    @contest.begin_date = DateTime.now
+    @contest.end_date = DateTime.now
   end
 
   def index
