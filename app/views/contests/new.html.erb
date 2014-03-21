@@ -18,15 +18,11 @@
       <%= f.label :link, "Duração" %>
       <%= f.select :duration, (1..10).to_a %>
 
-      <%= f.label :begin_date, "Data de Início" %>
-      <div class="date-select">
-        <%= f.datetime_select :begin_date, default: Time.now %>
-      </div>
+      <%= f.label :begin_date, "Data de Início (DD/MM/YYYY HH:MM)" %>
+      <%= f.text_field :begin_date, default: Time.now %>
 
-      <%= f.label :begin_date, "Data de Fim" %>
-      <div class="date-select">
-        <%= f.datetime_select :end_date, default: Time.now %>
-      </div>
+      <%= f.label :end_date, "Data de Fim (DD/MM/YYYY HH:MM)" %>
+      <%= f.text_field :end_date, default: Time.now %>
 
       <%= f.label :description, "Notas do Concurso" %>
       <%= f.text_area :description , :rows => 20 %>
