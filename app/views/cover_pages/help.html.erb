@@ -1,2 +1,43 @@
-<h1>CoverPages#help</h1>
-<p>Find me in app/views/cover_pages/help.html.erb</p>
+<% provide(:title, 'Sobre') %>
+<h1>Sobre o Loop</h1>
+
+<p>O <strong>Loop</strong> é a plataforma de treinos de programação competitiva feita exclusivamente para as <%= link_to "Olimpíadas Nacionais de Informática", "http://dcc.fc.up.pt/oni" %>!</p>
+
+<p>O objetivo desta plataforma é fornecer aos concorrentes portugueses de olimpíadas material e recursos para facilitar o treino e preparação para todos os concursos, nacionais ou internacionais. Com isto queremos melhorar o desempenho de Portugal em competições internacionais como a <b>International Olympiad in Informatics</b> ou o <b>Concurso Iberoamericano de Informática por Correspondência</b>.</p>
+
+<p>O <b>Loop</b> tem quatro componentes principais que se resumem no seguinte:</p>
+<ul>
+  <li><b>Recursos,</b> são o "núcleo" do Loop. Por recursos referimos a <b>artigos</b>, que são textos que descrevem um determinado algoritmo, técnica, estrutura de dados ou um tema mais geral e que funcionam como pequenas aulas de preparação. São normalmente acompanhados por código (em C/C++, sorry pascal users) e podem referir problemas ou outros aditivos visuais (imagens vá). Como um grande conjunto de artigos é desencorajador para alguém a começar ou que não sabe bem o que estudar a seguir, temos <b>guias</b>, que são conjuntos ordenados de artigos (ordenados porque é suposto que quem os leia siga essa ordem de leituras) que servem para agrupar artigos de temas semelhantes e que se complementam.</li>
+  <li><b>Problemas,</b> são, como o nome indica, problemas. Neste momento esta secção ainda está um pouco subdesenvolvida e funciona apenas como uma página estática onde apresentamos enunciados de problemas, soluções e links importantes. Serão usados em conjunto com artigos como exemplos ou aplicações. O objetivo para o futuro é integrar esta secção com um <i>online judge</i> que funcione como repositório de problemas para poder seguir o que cada concorrente faz.</li>
+  <li><b>Concursos,</b> são uma das grandes novidades que o Loop trás. Concursos, geralmente, mensais que servem como treino para as fases das ONI. Terão por norma 4 problemas (do mesmo tipo dos das ONI e igualmente cotados de 0 a 100 pontos) originais (exceto alguns casos especiais) e por concurso e serão feitos para um concurso de 3-4 horas (dependendo dos problemas poderão ser 3 ou 4 horas). O funcionamento do concurso será semelhante ao funcionamento dos concursos da <%= link_to "USACO", "http://usaco.org" %>, ou seja, durante um conjunto de dias (normalmente 4 dias seguidos) os concorrentes podem iniciar a sua prova quando quiserem. Depois de iniciarem terão apenas as 3-4 horas de concurso para resolver os problemas e submeterem-nos. Acabando esse tempo não é possível submeter mais independentemente da hora de começo. Os resultados devem sair na semana seguinte, assim como soluções e discussão de problemas. Cada concurso é ainda acompanhado de um título, identificador, e um tópico, uma frase divertida ou que sugira que tipo de problemas poderão sair.</li>
+  <li><b>Concorrentes,</b> são... os concorrentes! O objetivo desta secção é ter um "perfil" individual por concorrente que permite a cada concorrente seguir os concursos em que participaram os seus colegas, assim como ver estatísticas de participações nas ONI e também links para contas de <%= link_to "CodeForces", "http://codeforces.com" %>, <%= link_to "TopCoder", "http://topcoder.com/tc" %> ou ainda páginas pessoais.</li>
+</ul>
+
+<p>É de realçar só mais um ponto importante que é que os Concursos do <b>Loop</b> não são obrigatórios para participantes das ONI e não são necessários para ter acesso a nenhuma fase. São apenas para treino (por isso aproveitem).</p>
+
+
+<h1>A Equipa</h1>
+
+<p>Neste momento o Loop está a ser mantido por ex-concorrentes das ONI que decidiram que o pouco tempo que ainda tinham restante devia ser bem empregue. Claro, sob a mentoria do professor que faz as ONI acontecer: o professor Pedro Ribeiro.</p>
+
+<p>Eu (Pedro Paredes) estou a coordenar as tropas por aqui, mas tenho a colaboração de vários colegas.</p>
+
+<h1>Contactos</h1>
+
+<p>Não temos muito por onde ser contactados mas queríamos sublinhar dois meios:</p>
+
+<h3>IRC</h3>
+
+<p>O <b>IRC</b> é muito importante porque é o meio de comunicação mais dinâmico e que permite que os concorrentes possam discutir entre si e facilmente conversar com um membro da equipa (teremos alguém quase sempre online exceto talvez às 6 da manhã).</p>
+
+<p>O canal oficial do Loop é o <b>#oni2014</b> no servidor <%= link_to "Mibbit", "http://chat.mibbit.com" %>. Para quem desconhece, o IRC ou <i>Internet Relay Chat</i> é um sistema de <i>chat</i> que permite comunicação em grupo, através de salas de <i>chat</i> (que se chamam "canais" em termos de IRC), ou comunicação privada (através de "PM"s, mensagens privadas). Para mais informação sobre o IRC ver <%= link_to "aqui", "http://www.irchelp.org/irchelp/irctutorial.html" %>.</p>
+
+<p>Para quem não tem um cliente de IRC basta usar o cliente online <%= link_to "http://chat.mibbit.com", "http://chat.mibbit.com" %>, escolher um <i>nickname</i> e entrar no canal <b>#oni2014</b>. Se quiserem experimentar um cliente há <%= link_to "imensa escolha", "https://en.wikipedia.org/wiki/List_of_IRC_clients" %>!</p>
+
+<p>Não sejas tímido, basta entrar na sala, identificares-te e podes discutir problemas, tirar dúvidas ou fazer perguntas sobre as olimpíadas e falar sobre o que te apetecer!</p>
+
+<h3>E-Mail</h3>
+
+<p>Não temos propriamente um mail oficial do Loop (ainda), por isso para nos contactarem basta enviar um mail para o meu (Pedro Paredes) mail da faculdade: pparedes_at_dcc.fc.up.pt</p>
+
+<p>Se contactarem a organização das ONI a vossa mensagem também chega cá, assim como por qualquer membro da equipa.</p>

@@ -22,6 +22,9 @@ Loop::Application.routes.draw do
   get 'problem_types/',               to: 'problem_tags#index'
   get 'categories/:article_tag',      to: 'articles#index', as: :article_tag
   get 'categories/',                  to: 'article_tags#index'
+  get 'about/',                       to: 'cover_pages#help'
+  get 'contacts/',                    to: 'cover_pages#contacts'
+
   root  'cover_pages#home'
   match '/password_resets/:id', to: 'password_resets#edit',          via: 'get', :as => 'make_password_reset'
   match '/email_validation/:id',to: 'email_validations#edit',        via: 'get', :as => 'make_email_validation'
