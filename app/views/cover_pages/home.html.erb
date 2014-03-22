@@ -5,7 +5,7 @@
         <%= link_to @fixed_post.title, @fixed_post %>
       </div>
       <div class="post-body">
-        <%= raw html_truncate(@fixed_post.content, 50, "uwkSm2A638nLcamhz4tBug").gsub("uwkSm2A638nLcamhz4tBug", "... " + link_to("(Continuar a ler)", @fixed_post)) %>
+        <%= raw @fixed_post.content %>
       </div>
       <div class="post-footer">
         <span class="icon icon-pencil"></span> <b>Escrito por:</b> <%= link_to (namify @fixed_post.user.name), @fixed_post.user %>.
