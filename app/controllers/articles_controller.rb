@@ -7,6 +7,10 @@ class ArticlesController < ApplicationController
       @guide_rel = GuideRelationship.new
       @guide_rel.article_id = @article.id
       @guide_list = Guide.find_but(@article)
+    else
+      if @article.draft
+        redirect_to articles_path
+      end
     end
   end
 
@@ -16,7 +20,11 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:article_tag]
-      @articles = Article.tagged_with(params[:article_tag]).paginate(page: params[:page], per_page: 20)
+      if signed_in? and current_user.admin?
+        @articles = Article.tagged_with(params[:article_tag]).paginate(page: params[:page], per_page: 20)
+      else
+        @articles = Article.tagged_with(params[:article_tag]).paginate(page: params[:page], per_page: 20).where(draft: false)
+      end
       @tag = params[:article_tag]
     else
       if signed_in? and current_user.admin?
