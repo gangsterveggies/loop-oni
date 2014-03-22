@@ -499,6 +499,73 @@ input {
   text-decoration: line-through;
 }
 
+#article-content {
+  h4 {
+    padding-top: 10px;
+    padding-bottom: 3px;
+    padding-left: 30px;
+  }
+
+  .fig-title {
+    padding-left: 10px;
+    font-size: 0.9em;
+    margin-bottom: 2px;
+  }
+
+  .CodeRay {
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+
+  table {
+    border-radius: 15px;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 850px;
+    background-color: $ONIRed;
+    color: $ONIYellow;
+
+    td, th {
+      text-align: center;
+      border: 1px $ONIYellowDark solid;
+      border-top: none;
+      border-bottom: none;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    tr {
+      border: 1px $ONIYellowDark solid;
+      border-left: none;
+      border-right: none;
+
+      &:first-child {
+        border-top: none;
+        height: 25px;
+        line-height: 25px;
+        font-size: 1.1em;
+        color: $ONIYellowDark;
+      }
+
+      &:nth-child(even) {
+        background: $ONIRedDark;
+      }
+
+      &:last-child {
+        border-bottom: none;
+        background: none;
+      }      
+    }
+  }
+}
+
+
 /* search bar */
 
 #search-box {
