@@ -24,6 +24,8 @@ Loop::Application.routes.draw do
   get 'categories/',                  to: 'article_tags#index'
   get 'about/',                       to: 'cover_pages#help'
   get 'contacts/',                    to: 'cover_pages#contacts'
+  get "404" => "cover_pages#not_found"
+  get "500" => "cover_pages#error"
 
   root  'cover_pages#home'
   match '/password_resets/:id', to: 'password_resets#edit',          via: 'get', :as => 'make_password_reset'
