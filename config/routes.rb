@@ -23,6 +23,7 @@ Loop::Application.routes.draw do
   get 'categories/:article_tag',      to: 'articles#index', as: :article_tag
   get 'categories/',                  to: 'article_tags#index'
   get 'about/',                       to: 'cover_pages#help'
+  get 'rules/',                       to: 'cover_pages#rules'
   get 'contacts/',                    to: 'cover_pages#contacts'
   get "404" => "cover_pages#not_found"
   get "500" => "cover_pages#error"

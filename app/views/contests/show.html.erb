@@ -33,7 +33,7 @@
   <% unless @contest.link.empty? %>
     <h4 align="center">Link do concurso: <%= link_to @contest.link, @contest.link, target: "_blank" %></h4>
   <% end %>
-  <p align="center">Para ver todas as regras e instruções sobre concursos ver <%= link_to "aqui", "#" %>.</p>
+  <p align="center">Para ver todas as regras e instruções sobre concursos ver <%= link_to "aqui", rules_path %>.</p>
   <% unless @contest.description.empty? %>
     <h3>Notas sobre o concurso:</h3>
     <%= simple_format(@contest.description) %>
