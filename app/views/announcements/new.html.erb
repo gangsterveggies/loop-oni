@@ -9,15 +9,11 @@
       <%= f.label :message, "Mensagem" %>
       <%= f.text_field :message %>
 
-      <%= f.label :begin_date, "Data de Início" %>
-      <div class="date-select">
-        <%= f.datetime_select :begin_date, default: Time.now %>
-      </div>
+      <%= f.label :end_date, "Data de Início (DD/MM/YYYY HH:MM)" %>
+      <%= f.text_field :begin_date, default: Time.now %>
 
-      <%= f.label :begin_date, "Data de Fim" %>
-      <div class="date-select">
-        <%= f.datetime_select :end_date, default: Time.now %>
-      </div>
+      <%= f.label :end_date, "Data de Fim (DD/MM/YYYY HH:MM)" %>
+      <%= f.text_field :end_date, default: Time.now %>
 
       <%= f.submit "Criar Notificação", class: "button-style" %>
     <% end %>
