@@ -15,7 +15,7 @@ class ContestsController < ApplicationController
     @future_contests = Contest.paginate(page: params[:page], per_page: 20, :conditions => ["end_date > ?", DateTime.now()])
 
     @past_contests = []
-    ini_year = 2014
+    ini_year = 2013
     while (true)
       @cur = Contest.order("begin_date ASC").paginate(page: params[:page], per_page: 20, :conditions => ["end_date < ? AND end_date > ?", [Date.new(ini_year + 1, 9, 1), DateTime.now()].min, Date.new(ini_year, 9, 1)])
       if @cur.empty?
